@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>buession prototype</title>
+  </head>
+  <body>
+    <script src="../dist/prototype.umd.js"></script>
+    <script type="text/javascript">
+      var date = new Date();
+      console.log("年(y): " + date.format("yyyy"));
+      console.log("季度(n): " + date.format("n"));
+      console.log("季度(N): " + date.format("N"));
+      console.log("季度(A): " + date.format("A"));
+      console.log("月(M): " + date.format("MM"));
+      console.log("月(f): " + date.format("f"));
+      console.log("月(F): " + date.format("F"));
+      console.log("月(C): " + date.format("C"));
+      console.log("季度(A): " + date.format("A"));
+    </script>
+
+    <a onclick="window.copy('复制')">点击复制</a>
+    <a onclick="document.requestFullscreen()">全屏</a>
+  </body>
+</html>
