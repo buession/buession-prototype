@@ -7,8 +7,8 @@ import typescript2 from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
 import { camelCase } from 'lodash';
-const pkg = require('../package.json');
 
+const pkg = require('../package.json');
 const base = path.resolve(__dirname, '..')
 const src = path.resolve(base, 'src')
 const dist = path.resolve(base, 'dist')
