@@ -168,15 +168,12 @@ Array.prototype.compact = function(): Array<any> {
  * @param values 排除值数组
  * @return 不包括参数中任意一个指定值的数组
  */
-Array.prototype.without = function(values: any[]): Array<any> {
-	const $this = this;
-    let result: any[] = [];
+Array.prototype.without = function(...values: any[]): Array<any> {
+	const val = Array.prototype.slice.call(values, 0);
 
-	values.forEach((value: any) => {
-		result = result.concat($this.filter((val)=>value !== val));
-	});
-
-	return result;
+    return this.filter(function(v: any) {
+      return values.includes(v) === false;
+    });
 }
 
 /**

@@ -19,6 +19,10 @@
       console.log("月(F): " + date.format("F"));
       console.log("月(C): " + date.format("C"));
       console.log("季度(A): " + date.format("A"));
+
+      var a = {a: "A", "b": true, "n": 11, "f": 0.1}
+      console.log(Object.clone(a));
+      console.log(['a', 'b', 'c'].without('a', 'c'));
     </script>
 
     <a onclick="window.copy('复制')">点击复制</a>

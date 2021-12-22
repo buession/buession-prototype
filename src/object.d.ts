@@ -142,4 +142,11 @@ interface ObjectConstructor {
      * @return boolean
     */
     isUndefinedOrNull(obj: any): boolean;
+    /**
+     * 克隆对象
+     *
+     * @param obj 任意对象
+     * @return 新对象实例
+    */
+    clone(obj: any): any;
 }

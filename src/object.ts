@@ -162,6 +162,14 @@ interface ObjectConstructor {
 	 * @return boolean
 	*/
 	isUndefinedOrNull(obj: any): boolean;
+
+	/**
+	 * 克隆对象
+	 *
+	 * @param obj 任意对象
+	 * @return 新对象实例
+	*/
+	clone(obj: any): any;
 }
 
 /**
@@ -382,4 +390,28 @@ Object.isUndefined = function(obj: any): boolean {
 */
 Object.isUndefinedOrNull = function(obj: any): boolean {
 	return Object.isUndefined(obj) || Object.isNull(obj);
+}
+
+/**
+ * 克隆对象
+ *
+ * @param obj 任意对象
+ * @return 新对象实例
+*/
+Object.clone = function(obj: any): any {
+	if (Object.isString(obj)) {
+		return String(obj);
+	} else if (Object.isArray(obj)) {
+		return Array.prototype.slice.apply(obj);
+	} else if (Object.isPlainObject(obj)) {
+		const result = {};
+
+		Object.keys(obj).forEach(name => {
+			result[name] = Object.clone(obj[name]);
+		});
+
+		return result;
+	}
+
+	return obj;
 }
