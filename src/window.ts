@@ -89,7 +89,7 @@ interface ClipboardData {
     setData(format: ClipboardDataFormat, content: string): void;
 }
 
-Object.defineProperty(window, 'browser', {
+Object.defineProperty(window, "browser", {
     value: {
         userAgent: navigator.userAgent,
         name: navigator.appName,
@@ -174,7 +174,7 @@ Location.prototype.getParameters = function(): Record<string, any> {
         	}
       	}
     }
-    
+
     return parameters;
 }
 

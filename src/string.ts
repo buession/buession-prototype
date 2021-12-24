@@ -180,6 +180,8 @@ interface String {
     hashCode(): number;
 }
 
+type RandomType = "NUMERIC" | "LETTER" | "LETTER_NUMERIC" | "CHINESE" | undefined;
+
 interface StringConstructor {
 
     /**
@@ -194,7 +196,7 @@ interface StringConstructor {
  	 *        
  	 * @return 生成结果
  	*/
-    random(length: number, type?: "NUMERIC" | "LETTER" | "LETTER_NUMERIC" | "CHINESE" | undefined): string;
+    random(length: number, type?: RandomType): string;
 }
 
 /**
@@ -298,7 +300,7 @@ String.prototype.right = function(length: number): string {
  *		   实际截取长度：当 length 小于等于 truncation 的长度时为，length；当 length 大于 truncation 的长度时为，length - truncation.length
 */
 String.prototype.truncation = function(length: number, truncation: string = '...'): string {
-    truncation = truncation||"...";
+    truncation = truncation || "...";
     return this.length > length ? this.slice(0, length <= truncation.length ? length : length - truncation.length) + truncation : String(this);
 }
 
@@ -425,7 +427,7 @@ String.prototype.stripScripts = function(): string {
  * @return 数组
 */
 String.prototype.toArray = function(delimiter: string): string[] {
-    return this.split(delimiter||"");
+    return this.split(delimiter || "");
 }
 
 /**
@@ -480,7 +482,7 @@ String.prototype.hashCode = function(): number{
  *        
  * @return 生成结果
 */
-String.random = function(length: number, type: "NUMERIC" | "LETTER" | "LETTER_NUMERIC" | "CHINESE" | undefined = "LETTER_NUMERIC"): string {
+String.random = function(length: number, type: RandomType = "LETTER_NUMERIC"): string {
     let result = "";
 
     if (type === "CHINESE") {

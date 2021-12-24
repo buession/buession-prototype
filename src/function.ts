@@ -26,8 +26,8 @@ interface Function {
  * @return mixed
 */
 Function.prototype.delay = function(timeout: number): any {
-    let __method = this,
-    args = Array.prototype.slice.call(arguments, 1);
+    const __method = this;
+    const args = Array.prototype.slice.call(arguments, 1);
 
     return window.setTimeout(__method.apply(__method, args), timeout * 1000);
 }

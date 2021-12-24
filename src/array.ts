@@ -108,7 +108,7 @@ Array.prototype.exists = function(item: any): boolean {
  *
  * @return 第一个元素
 */
-Array.prototype.first = function(): any {
+Array.prototype.first = function<T>(): T {
 	if (this.length === 0) {
 		throw "Array index out of range: 0";
 	}
@@ -121,7 +121,7 @@ Array.prototype.first = function(): any {
  *
  * @return 第一个元素
 */
-Array.prototype.last = function(): any {
+Array.prototype.last = function<T>(): T {
 	if (this.length === 0) {
 		throw "Array index out of range: 0";
 	}
@@ -158,7 +158,7 @@ Array.prototype.merge = Array.prototype.concat;
  *
  * @return 不包含 null/undefined 值元素的数组的新版本
 */
-Array.prototype.compact = function(): Array<any> {
+Array.prototype.compact = function<T>(): Array<T> {
 	return this.filter((value)=>Object.isUndefinedOrNull(value));
 }
 
@@ -168,10 +168,10 @@ Array.prototype.compact = function(): Array<any> {
  * @param values 排除值数组
  * @return 不包括参数中任意一个指定值的数组
  */
-Array.prototype.without = function(...values: any[]): Array<any> {
+Array.prototype.without = function<T>(...values: T[]): Array<T> {
 	const val = Array.prototype.slice.call(values, 0);
 
-    return this.filter(function(v: any) {
+    return this.filter(function(v: T) {
       return values.includes(v) === false;
     });
 }
@@ -181,7 +181,7 @@ Array.prototype.without = function(...values: any[]): Array<any> {
  *
  * @return 克隆结果
 */
-Array.prototype.clone = function(): Array<any> {
+Array.prototype.clone = function<T>(): Array<T> {
     return this.slice(0);
 }
 
@@ -190,7 +190,7 @@ Array.prototype.clone = function(): Array<any> {
  *
  * @return 空数组
 */
-Array.prototype.clear = function(): Array<any> {
+Array.prototype.clear = function<T>(): Array<T> {
     this.length = 0;
 	return this;
 }
