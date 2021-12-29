@@ -2,7 +2,7 @@
 <div align="center">
   <p align="center">JavaScript 原生对象扩展</p>
   <a href="https://codecov.io/github/buession/buession-prototype?branch=master">
-    <img src="https://img.shields.io/codecov/c/github/buession/buession-prototype?token=NW2XVQWGPP" alt="Coverage Status" />
+    <img src="https://img.shields.io/codecov/c/github/buession/buession-prototype?token=GDtRrhVDwe" alt="Coverage Status" />
   </a>
   <a href="https://www.npmjs.com/package/@buession/prototype">
     <img src="https://img.shields.io/bundlephobia/minzip/@buession/prototype/latest" alt="Size" />
@@ -21,6 +21,9 @@
   </a>
   <a href="https://www.npmjs.com/package/buession-prototype">
     <img src="https://img.shields.io/npm/dm/@buession/prototype" alt="Download" />
+  </a>
+  <a href="https://www.npmjs.com/package/buession-prototype">
+    <img src="https://img.shields.io/snyk/vulnerabilities/npm/@buession/prototype" alt="Vulnerabilities" />
   </a>
 </div>
 
