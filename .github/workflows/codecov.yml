@@ -40,15 +40,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-        # with:
-        #   token: ${{ secrets.ACCESS_TOKEN }}
-      # - name: Checkout submodules
-      #   uses: actions/checkout@v2
-      #   with:
-      #     repository: tangjinzhou/antdv-demo
-      #     token: ${{ secrets.ACCESS_TOKEN }}
-      #     path: antdv-demo
-      #     submodules: true
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v1
@@ -63,7 +54,7 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: Generate coverage report
-        run: npm test
+        run: npm run codecov
         env:
           COVERAGE: "true"
 
