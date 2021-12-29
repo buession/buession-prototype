@@ -4,6 +4,12 @@
   <a href="https://codecov.io/github/buession/buession-prototype?branch=master">
     <img src="https://img.shields.io/codecov/c/github/buession/buession-prototype?token=GDtRrhVDwe" alt="Coverage Status" />
   </a>
+  <a href="https://github.com/buession/buession-prototype/actions/workflows/codecov.yml">
+    <img src="https://github.com/buession/buession-prototype/actions/workflows/codecov.yml/badge.svg" alt="Codecov" />
+  </a>
+  <a href="https://github.com/buession/buession-prototype/actions/workflows/codeql-analysis.yml">
+    <img src="https://github.com/buession/buession-prototype/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL" />
+  </a>
   <a href="https://www.npmjs.com/package/@buession/prototype">
     <img src="https://img.shields.io/bundlephobia/minzip/@buession/prototype/latest" alt="Size" />
   </a>
