@@ -62,6 +62,13 @@ interface Array<T> {
 	compact(): Array<T>;
 
 	/**
+	 * 对数组的元素进行去重
+	 * 
+	 * @return 数组元素进行去重后的新版本
+	 */
+	unique(): Array<T>;
+
+	/**
 	 * 返回不包括参数中任意一个指定值的数组
 	 * 
 	 * @param values 排除值数组
@@ -160,6 +167,23 @@ Array.prototype.merge = Array.prototype.concat;
 */
 Array.prototype.compact = function<T>(): Array<T> {
 	return this.filter((value)=>Object.isUndefinedOrNull(value));
+}
+
+/**
+ * 对数组的元素进行去重
+ * 
+ * @return 数组元素进行去重后的新版本
+ */
+Array.prototype.unique = function<T>(): Array<T> {
+	const temp: Array<T> = new Array();
+
+	return this.filter(function(v: T) {
+      const ret = temp.includes(v) === false;
+
+	  temp.push(v);
+
+	  return ret;
+    });
 }
 
 /**

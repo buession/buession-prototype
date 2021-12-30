@@ -55,8 +55,6 @@ jobs:
 
       - name: Generate coverage report
         run: npm run codecov
-        env:
-          COVERAGE: "true"
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1

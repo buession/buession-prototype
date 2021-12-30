@@ -35,6 +35,22 @@ interface ObjectConstructor {
  	 */
  	isPlainObject(obj: any): boolean;
 
+ 	/**
+ 	 * 判断对象是否为 Map 类型
+ 	 *
+ 	 * @param obj 任意对象
+ 	 * @return boolean
+ 	 */
+ 	isMap(obj: any): boolean;
+
+ 	/**
+ 	 * 判断对象是否为 Set 类型
+ 	 *
+ 	 * @param obj 任意对象
+ 	 * @return boolean
+ 	 */
+ 	isSet(obj: any): boolean;
+
 	/**
 	  * 判断对象是否为 Symbol
 	  *
@@ -210,6 +226,26 @@ Object.isObject = function(obj: any): boolean {
 */
 Object.isPlainObject = function(obj: any): boolean {
 	return Object.prototype.toString.call(obj) === "[object Object]";
+}
+
+/**
+ * 判断对象是否为 Map 类型
+ *
+ * @param obj 任意对象
+ * @return boolean
+*/
+Object.isMap = function(obj: any): boolean {
+	return Object.prototype.toString.call(obj) === "[object Map]";
+}
+
+/**
+ * 判断对象是否为 Set 类型
+ *
+ * @param obj 任意对象
+ * @return boolean
+*/
+Object.isSet = function(obj: any): boolean {
+	return Object.prototype.toString.call(obj) === "[object Set]";
 }
 
 /**

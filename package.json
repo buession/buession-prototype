@@ -17,7 +17,7 @@
   "bugs": "https://github.com/buession/buession-prototype/issues",
   "private": false,
   "scripts": {
-    "build": "npm cache clean --force && rm -fR ./dist/* && rollup -c ./rollup.config.js",
+    "build": "npm cache clean --force && rm -fR ./dist/* && rm -fR types && rollup -c ./rollup.config.js && mv ./dist/types ./",
     "lint": "eslint -c ./.eslintrc.js './{src,scripts,build}/**/*.{js,ts,tsx}'",
     "codecov": "codecov",
     "release": "yarn build && yarn publish --access public"

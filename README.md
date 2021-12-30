@@ -54,7 +54,8 @@ yarn add @buession/prototype
 > 对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏。
 
 ```html
-<script src="https://unpkg.com/@buession/prototype/dist/prototype.min.js" type="text/javascript"></script>
+最新版：<script src="https://unpkg.com/@buession/prototype/dist/prototype.min.js" type="text/javascript"></script>
+具体版本：<script src="https://unpkg.com/@buession/prototype@版本/dist/prototype.min.js" type="text/javascript"></script>
 ```
 
 ## License
