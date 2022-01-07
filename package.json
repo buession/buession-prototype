@@ -1,7 +1,7 @@
 {
   "name": "@buession/prototype",
   "alias": "prototype",
-  "version": "v1.1.1",
+  "version": "v1.1.2",
   "description": "A native object extension framework for Javascript.",
   "homepage": "https://buession.github.io/buession-prototype/",
   "author": {
@@ -17,8 +17,8 @@
   "bugs": "https://github.com/buession/buession-prototype/issues",
   "private": false,
   "scripts": {
-    "build": "npm cache clean --force && rm -fR ./dist/* && rm -fR types && rollup -c ./rollup.config.js && mv ./dist/types ./",
-    "lint": "eslint -c ./.eslintrc.js './{src,scripts,build}/**/*.{js,ts,tsx}'",
+    "build": "npm cache clean --force && rm -fR ./dist && rm -fR ./types && rollup -c ./rollup.config.js && mv ./dist/types ./",
+    "lint": "eslint -c ./.eslintrc.js './{src}/**/*.{js,ts,jsx,tsx}'",
     "codecov": "codecov",
     "release": "yarn build && yarn publish --access public"
   },

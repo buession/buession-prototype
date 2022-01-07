@@ -104,6 +104,7 @@ Object.defineProperty(window, "browser", {
  		isSafari: navigator.userAgent.exists("Safari"),
 		isNetscape: /Netscape([\d]*)\/([^\s]+)/i.test(navigator.userAgent)
     },
+    configurable: true,
     writable: false
 });
 

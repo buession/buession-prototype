@@ -1,5 +1,9 @@
 # 更新日志
 
+## v1.1.2
+
+- 🐞 【修复】document、windows Object.defineProperty 定义的属性 can't redefine non-configurable property BUG
+
 
 ## v1.1.1
 

@@ -208,6 +208,7 @@ Object.defineProperty(document, "fullScreen", {
 
         return false;
     },
+    configurable: true,
     writable: false
 });
 
@@ -236,6 +237,7 @@ Object.defineProperty(document, "fullScreenEnabled", {
 
         return false;
     },
+    configurable: true,
     writable: false
 });
 
@@ -264,6 +266,7 @@ Object.defineProperty(document, "fullScreenElement", {
 
         return null;
     },
+    configurable: true,
     writable: false
 });
 
