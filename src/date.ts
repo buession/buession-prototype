@@ -3,32 +3,32 @@
  */
 
 interface Date {
-    /**
+  /**
 	 * 判断是否为闰年
 	 *
 	 * @return boolean
-	*/
+	 */
 	isLeapYear(): boolean;
 
-    /**
+  /**
 	 * 获取季节
 	 *
 	 * @return 季节
-	*/
+	 */
 	getSeason(): number;
 
-    /**
+  /**
 	 * 获取年份中的第几天
 	 *
 	 * @return 年份中的第几天
-	*/
+	 */
 	getDayOfYear(): number;
 
-    /**
+  /**
 	 * 获取年份总天数
 	 *
 	 * @return 年份总天数
-	*/
+	 */
 	getDaysOfYear(): number;
 
 	/**
@@ -68,7 +68,7 @@ interface Date {
 	 * Z - 时区
 	 *
 	 * @return 格式化后的日期时间
-	*/
+	 */
 	format(format: string): string;
 }
 
@@ -76,7 +76,7 @@ interface Date {
  * 判断是否为闰年
  *
  * @return boolean
-*/
+ */
 Date.prototype.isLeapYear = function(): boolean {
 	const year = this.getFullYear();
 	return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
@@ -86,9 +86,9 @@ Date.prototype.isLeapYear = function(): boolean {
  * 获取季节
  *
  * @return 季节
-*/
+ */
 Date.prototype.getSeason = function(): number {
-    const month = this.getMonth();
+  const month = this.getMonth();
 
 	if (month >= 3 && month <= 5) {
 		return 0;
@@ -107,7 +107,7 @@ Date.prototype.getSeason = function(): number {
  * 获取年份中的第几天
  *
  * @return 年份中的第几天
-*/
+ */
 Date.prototype.getDayOfYear = function(): number {
 	const month_days = this.isLeapYear() == true ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 	let days = this.getDate();
@@ -123,7 +123,7 @@ Date.prototype.getDayOfYear = function(): number {
  * 获取年份总天数
  *
  * @return 年份总天数
-*/
+ */
 Date.prototype.getDaysOfYear = function(): number {
 	return this.isLeapYear() ? 366 : 365;
 }
@@ -165,7 +165,7 @@ Date.prototype.getDaysOfYear = function(): number {
  * Z - 时区
  *
  * @return 格式化后的日期时间
-*/
+ */
 Date.prototype.format = function(format: string): string {
 	if (Object.isString(format) === false) {
 		throw "Invalid argument format";
@@ -212,10 +212,10 @@ Date.prototype.format = function(format: string): string {
 
 		// 月
 		"M": function(pattern: string) {
-	        const $month = $this.getMonth() + 1;
-	        const result = $month < 10 ? "0" + $month : "" + $month;
+	    const $month = $this.getMonth() + 1;
+	    const result = $month < 10 ? "0" + $month : "" + $month;
 
-	        return result.substring(2 - pattern.length);
+	    return result.substring(2 - pattern.length);
 		},
 
 		// 月（Jan 到 Dec）
@@ -266,52 +266,52 @@ Date.prototype.format = function(format: string): string {
 
 		// 日
 		"d": function(pattern: string) {
-	        const $date = $this.getDate();
-	        const result = $date < 10 ? "0" + $date : "" + $date;
+	    const $date = $this.getDate();
+	    const result = $date < 10 ? "0" + $date : "" + $date;
 
-	        return result.substring(2 - pattern.length);
+	    return result.substring(2 - pattern.length);
 		},
 
 		// 小时
 		"h": function(pattern: string) {
-	        const $hour = $this.getHours();
-	        const result = $hour < 10 ? "0" + $hour : "" + $hour;
+	    const $hour = $this.getHours();
+	    const result = $hour < 10 ? "0" + $hour : "" + $hour;
 
-	        return result.substring(2 - pattern.length);
+	    return result.substring(2 - pattern.length);
 		},
 
 		// 分钟
 		"m": function(pattern: string) {
-	        const $minutes = $this.getMinutes();
+	    const $minutes = $this.getMinutes();
 			const result = $minutes < 10 ? "0" + $minutes : "" + $minutes;
 
-	        return result.substring(2 - pattern.length);
+	    return result.substring(2 - pattern.length);
 		},
 
 		// 秒钟
 		"s": function(pattern: string) {
-	        const $seconds = $this.getMinutes();
-	        const result = $seconds < 10 ? "0" + $seconds : "" + $seconds;
+	    const $seconds = $this.getMinutes();
+	    const result = $seconds < 10 ? "0" + $seconds : "" + $seconds;
 
-	        return result.substring(2 - pattern.length);
+	    return result.substring(2 - pattern.length);
 		},
 
 		// 毫秒
 		"S": function(pattern: string) {
-	        const $mise = $this.getMilliseconds();
-	        const result = $mise < 10 ? "0" + $mise : "" + $mise;
+	    const $mise = $this.getMilliseconds();
+	    const result = $mise < 10 ? "0" + $mise : "" + $mise;
 
-	        return result.substring(2 - pattern.length);
+	    return result.substring(2 - pattern.length);
 		}
 	};
 
 	return format.replace(/([ynNAMfFCdYTjeElLwWiohHmsSaOPZ])+/g, function(all: string, t: string) {
-	    const fn = $funcs[t];
+	  const fn = $funcs[t];
 
-	    if(Object.isFunction(fn) === true){
-	        return fn(all);
-	    }
+	  if(Object.isFunction(fn) === true){
+	    return fn(all);
+	  }
 
-	    return all;
+	  return all;
 	});
 }

@@ -18,10 +18,10 @@ const Prototype = {
 	},
 
 	/**
-     * 
-     * @param x 任意参数
-     * @return 任意值
-    */
+   * 
+   * @param x 任意参数
+   * @return 任意值
+   */
 	K: function (x: any): any {
 		return x;
 	}
