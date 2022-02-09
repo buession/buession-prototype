@@ -4,11 +4,11 @@
 
 interface Function {
   /**
-	 * 获取函数参数名称
-	 *
-	 * @return 函数参数名称列表
-	 */
-	argumentNames(): string[] | null;
+   * 获取函数参数名称
+   *
+   * @return 函数参数名称列表
+   */
+  argumentNames(): string[] | null;
 
   /**
    * 延时执行函数
@@ -18,6 +18,8 @@ interface Function {
    */
   delay(timeout: number): any
 }
+
+declare var Function: FunctionConstructor;
 
 /**
  * 延时执行函数

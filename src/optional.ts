@@ -2,7 +2,7 @@
  * Optional 对象
  */
 
-export class Optional<T> {
+class Optional<T> {
   private value: T | null | undefined;
 
   private constructor(value: T | null | undefined) {
@@ -38,4 +38,8 @@ export class Optional<T> {
   }
 }
 
-(window as any).Optional = Optional;
+interface Window {
+	Optional: typeof Optional;
+}
+
+window.Optional = Optional;

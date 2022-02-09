@@ -78,6 +78,24 @@ interface Browser {
 
 type ClipboardDataFormat = "text" | "url" | "file" | "html" | "image";
 
+declare var Window: {
+  prototype: Window;
+
+  new(): Window;
+};
+
+declare var Location: {
+  prototype: Location;
+
+  new(): Location;
+};
+
+declare var Browser: {
+  prototype: Browser;
+
+  new(): Browser;
+};
+
 interface ClipboardData {
   /**
    * 设置粘贴板数据

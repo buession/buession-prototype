@@ -33,6 +33,7 @@ const externals = ['window'];
 const externalExcludes = [];
 
 const plugins = [
+  eslint(),
   resolve({
     external: []
   }),
@@ -45,7 +46,7 @@ const plugins = [
     values: {
       __VERSION__: pkg.version
     }
-  }), 
+  }),
   babel({
     configFile: './babel.config.js',
     babelHelpers: 'runtime',

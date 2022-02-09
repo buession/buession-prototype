@@ -28,7 +28,7 @@ const Prototype = {
 }
 
 interface Window {
-	Prototype:typeof Prototype;
+	Prototype: typeof Prototype;
 }
 
 window.Prototype = Prototype;

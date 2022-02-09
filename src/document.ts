@@ -167,6 +167,12 @@ interface HTMLElement {
   msRequestFullscreen(): Promise<void>;
 }
 
+declare var Document: {
+  prototype: Document;
+
+  new(): Document;
+};
+
 /**
  * 检测当前浏览器是否为全屏
  * 

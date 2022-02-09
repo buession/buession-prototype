@@ -4,35 +4,36 @@
 
 interface Date {
   /**
-	 * 判断是否为闰年
-	 *
-	 * @return boolean
-	 */
-	isLeapYear(): boolean;
+   * 判断是否为闰年
+   *
+   * @return boolean
+   */
+  isLeapYear(): boolean;
 
   /**
-	 * 获取季节
-	 *
-	 * @return 季节
-	 */
-	getSeason(): number;
+   * 获取季节
+   *
+   * @return 季节
+   */
+  getSeason(): number;
 
   /**
-	 * 获取年份中的第几天
-	 *
-	 * @return 年份中的第几天
-	 */
-	getDayOfYear(): number;
+   * 获取年份中的第几天
+   *
+   * @return 年份中的第几天
+   */
+  getDayOfYear(): number;
 
   /**
-	 * 获取年份总天数
-	 *
-	 * @return 年份总天数
-	 */
-	getDaysOfYear(): number;
+   * 获取年份总天数
+   *
+   * @return 年份总天数
+   */
+  getDaysOfYear(): number;
 
 	/**
-	 * Format a date object into a string value.
+	 * 将日期时间格式化为字符串
+	 * 
 	 * @param  format string - the desired format of the date
 	 *
 	 * The format can be combinations of the following:
@@ -69,8 +70,10 @@ interface Date {
 	 *
 	 * @return 格式化后的日期时间
 	 */
-	format(format: string): string;
+  format(format: string): string;
 }
+
+declare var Date: DateConstructor;
 
 /**
  * 判断是否为闰年
@@ -190,28 +193,33 @@ Date.prototype.format = function(format: string): string {
 	const $funcs:Record<string, Function> = {
 		// 年
 		"y": function(pattern: string) {
+			console.debug("y => pattern: " + pattern);
 			return ($this.getFullYear() + "").substring(4 - pattern.length);
 		},
 
 		// 季度（1 到 4）
 		"n": function(pattern: string) {
+			console.debug("n => pattern: " + pattern);
 			return seasonFn();
 		},
 
 		// 季度名称
 		"N": function(pattern: string) {
+			console.debug("N => pattern: " + pattern);
 			const n = seasonFn() - 1;
 			return _season_map["N"][n];
 		},
 
 		// 季度中文名称
 		"A": function(pattern: string){
+			console.debug("A => pattern: " + pattern);
 			const n = seasonFn() - 1;
 			return _season_map["A"][n];
 		},
 
 		// 月
 		"M": function(pattern: string) {
+			console.debug("M => pattern: " + pattern);
 	    const $month = $this.getMonth() + 1;
 	    const result = $month < 10 ? "0" + $month : "" + $month;
 
@@ -220,52 +228,61 @@ Date.prototype.format = function(format: string): string {
 
 		// 月（Jan 到 Dec）
 		"f": function(pattern: string) {
+			console.debug("f => pattern: " + pattern);
 			const $month = $this.getMonth();
 			return _month_map["f"][$month];
 		},
 
 		// 月（January 到 December）
 		"F": function(pattern: string) {
+			console.debug("F => pattern: " + pattern);
 			const $month = $this.getMonth();
 			return _month_map["F"][$month];
 		},
 
 		// 月，中文名称
 		"C": function(pattern: string) {
+			console.debug("C => pattern: " + pattern);
 			const $month = $this.getMonth();
 			return _month_map["C"][$month];
 		},
 
 		// 星期数字，0 到 6 表示
 		"e": function(pattern: string) {
+			console.debug("e => pattern: " + pattern);
 			return $this.getDay();
 		},
 
 		// 星期数字，1 到 7 表示
 		"E": function(pattern: string) {
+			console.debug("E => pattern: " + pattern);
 			return $this.getDay() + 1;
 		},
 
 		// 星期英文缩写
 		"l": function(pattern: string) {
+			console.debug("l => pattern: " + pattern);
 			const $weekday = $this.getDay();
 			return _weekday_map["W"][$weekday];
 		},
 
 		// 星期英文全称
 		"L": function(pattern: string) {
+			console.debug("L => pattern: " + pattern);
 			const $weekday = $this.getDay();
 			return _weekday_map["WC"][$weekday];
 		},
 
 		// 星期中文名称
 		"w": function(pattern: string) {
+			console.debug("w => pattern: " + pattern);
 			const $weekday = $this.getDay();
 			return _weekday_map["WC"][$weekday];
 		},
 
 		// 日
 		"d": function(pattern: string) {
+			console.debug("d => pattern: " + pattern);
 	    const $date = $this.getDate();
 	    const result = $date < 10 ? "0" + $date : "" + $date;
 
@@ -274,6 +291,7 @@ Date.prototype.format = function(format: string): string {
 
 		// 小时
 		"h": function(pattern: string) {
+			console.debug("h => pattern: " + pattern);
 	    const $hour = $this.getHours();
 	    const result = $hour < 10 ? "0" + $hour : "" + $hour;
 
@@ -282,6 +300,7 @@ Date.prototype.format = function(format: string): string {
 
 		// 分钟
 		"m": function(pattern: string) {
+			console.debug("m => pattern: " + pattern);
 	    const $minutes = $this.getMinutes();
 			const result = $minutes < 10 ? "0" + $minutes : "" + $minutes;
 
@@ -290,6 +309,7 @@ Date.prototype.format = function(format: string): string {
 
 		// 秒钟
 		"s": function(pattern: string) {
+			console.debug("s => pattern: " + pattern);
 	    const $seconds = $this.getMinutes();
 	    const result = $seconds < 10 ? "0" + $seconds : "" + $seconds;
 
@@ -298,6 +318,7 @@ Date.prototype.format = function(format: string): string {
 
 		// 毫秒
 		"S": function(pattern: string) {
+			console.debug("S => pattern: " + pattern);
 	    const $mise = $this.getMilliseconds();
 	    const result = $mise < 10 ? "0" + $mise : "" + $mise;
 

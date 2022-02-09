@@ -18,6 +18,7 @@ const Try = {
 					result = lambda();
 					break;
 				} catch(e) {
+					console.error(e);
 				}
 			}
 		}
@@ -27,7 +28,7 @@ const Try = {
 }
 
 interface Window {
-	Try:typeof Try;
+	Try: typeof Try
 }
 
 window.Try = Try;

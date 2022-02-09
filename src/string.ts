@@ -182,6 +182,8 @@ interface String {
 
 type RandomType = "NUMERIC" | "LETTER" | "LETTER_NUMERIC" | "CHINESE" | undefined;
 
+declare var String: StringConstructor;
+
 interface StringConstructor {
 
   /**
@@ -505,7 +507,7 @@ String.random = function(length: number, type: RandomType = "LETTER_NUMERIC"): s
     throw "Invalid argument type value, must be: NUMERIC, LETTER, LETTER_NUMERIC or CHINESE";
   }
 
-  for (let i = 0; i < length; i++) {
+  for (let j = 0; j < length; j++) {
     result += map[type].charAt(Math.rand(0, map[type].length-1));
   }
 

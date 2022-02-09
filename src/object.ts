@@ -4,60 +4,60 @@
 
 interface ObjectConstructor {
   /**
- 	 * 获取对象数据类型
- 	 *
- 	 * @param obj 对象变量
- 	 * @return 对象数据类型
- 	 */
+   * 获取对象数据类型
+   *
+   * @param obj 对象变量
+   * @return 对象数据类型
+   */
   type(obj: any): string;
 
   /**
- 	 * 获取对象原始数据类型
- 	 *
- 	 * @param obj 对象变量
- 	 * @return 原始数据类型
- 	 */
+   * 获取对象原始数据类型
+   *
+   * @param obj 对象变量
+   * @return 原始数据类型
+   */
   rawType(obj: any): string;
 
- 	/**
- 	 * 判断对象是否为 object 类型
- 	 *
- 	 * @param obj 任意对象
- 	 * @return boolean
- 	 */
- 	isObject(obj: any): boolean;
+  /**
+   * 判断对象是否为 object 类型
+   *
+   * @param obj 任意对象
+   * @return boolean
+   */
+  isObject(obj: any): boolean;
 
- 	/**
- 	 * 判断对象是否为简单 object 类型
- 	 *
- 	 * @param obj 任意对象
- 	 * @return boolean
- 	 */
- 	isPlainObject(obj: any): boolean;
+  /**
+   * 判断对象是否为简单 object 类型
+   *
+   * @param obj 任意对象
+   * @return boolean
+   */
+  isPlainObject(obj: any): boolean;
 
- 	/**
- 	 * 判断对象是否为 Map 类型
- 	 *
- 	 * @param obj 任意对象
- 	 * @return boolean
- 	 */
- 	isMap(obj: any): boolean;
+  /**
+   * 判断对象是否为 Map 类型
+   *
+   * @param obj 任意对象
+   * @return boolean
+   */
+  isMap(obj: any): boolean;
 
- 	/**
- 	 * 判断对象是否为 Set 类型
- 	 *
- 	 * @param obj 任意对象
- 	 * @return boolean
- 	 */
- 	isSet(obj: any): boolean;
+  /**
+   * 判断对象是否为 Set 类型
+   *
+   * @param obj 任意对象
+   * @return boolean
+   */
+  isSet(obj: any): boolean;
 
-	/**
-	 * 判断对象是否为 Symbol
-	 *
-	 * @param obj 任意对象
-	 * @return boolean
-	 */
-	isSymbol(obj: any): boolean;
+  /**
+   * 判断对象是否为 Symbol
+   *
+   * @param obj 任意对象
+   * @return boolean
+   */
+  isSymbol(obj: any): boolean;
 
 	/**
 	 * 判断对象是否为 Promise
@@ -155,38 +155,40 @@ interface ObjectConstructor {
 	 */
 	isEvent(obj: any): boolean;
 
-	/**
-	 * 判断对象是否为 null 对象
-	 *
-	 * @param obj 任意对象
-	 * @return boolean
-	 */
-	isNull(obj: any): boolean;
+  /**
+   * 判断对象是否为 null 对象
+   *
+   * @param obj 任意对象
+   * @return boolean
+   */
+  isNull(obj: any): boolean;
 
-	/**
-	 * 判断对象是否为未定义
-	 *
-	 * @param obj 任意对象
-	 * @return boolean
-	 */
-	isUndefined(obj: any): boolean;
+  /**
+   * 判断对象是否为未定义
+   *
+   * @param obj 任意对象
+   * @return boolean
+   */
+  isUndefined(obj: any): boolean;
 
-	/**
-	 * 判断对象是否为未定义或 null
-	 *
-	 * @param obj 任意对象
-	 * @return boolean
-	 */
-	isUndefinedOrNull(obj: any): boolean;
+  /**
+   * 判断对象是否为未定义或 null
+   *
+   * @param obj 任意对象
+   * @return boolean
+   */
+  isUndefinedOrNull(obj: any): boolean;
 
-	/**
-	 * 克隆对象
-	 *
-	 * @param obj 任意对象
-	 * @return 新对象实例
-	 */
-	clone(obj: any): any;
+  /**
+   * 克隆对象
+   *
+   * @param obj 任意对象
+   * @return 新对象实例
+   */
+  clone(obj: any): any;
 }
+
+declare var Object: ObjectConstructor;
 
 /**
  * 获取对象数据类型
