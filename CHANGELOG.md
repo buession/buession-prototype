@@ -1,5 +1,10 @@
 # 更新日志
 
+## v2.0.0
+
+- 🌟 【优化】增加 eslint 代码检
+- 🌟 【优化】修改全局类注册到 window 方式
+
 ## v1.1.2
 
 - 🐞 【修复】document、windows Object.defineProperty 定义的属性 can't redefine non-configurable property BUG
