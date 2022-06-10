@@ -11,13 +11,6 @@ interface Number {
    * @return 填充后的字符串数字
    */
   toPaddedString(length: number, radix: number): string;
-
-  /**
-   * 将数字转换为十六进制
-   *
-   * @return 转换结果
-   */
-  toColorPart(): string;
 }
 
 interface NumberConstructor {
@@ -25,7 +18,7 @@ interface NumberConstructor {
    * 判断数字是否为奇数
    *
    * @param num 需要判断的数字
-   * @return boolean
+   * @return boolean 数字是为奇数返回 true；否则返回 false
    */
   isOdd(num: number): boolean;
 
@@ -33,7 +26,7 @@ interface NumberConstructor {
    * 判断数字是否为偶数
    *
    * @param num 需要判断的数字
-   * @return boolean
+   * @return boolean 数字是为偶数返回 true；否则返回 false
    */
   isEven(num: number): boolean;
 
@@ -44,7 +37,7 @@ interface NumberConstructor {
    * @param min 最小值
    * @param max 最大值
    * @param match 是否包含最小值或最大值
-   * @return boolean
+   * @return boolean 数字是否在另两个数字之间，返回 true；否则返回 false
    */
   isBetween(num: number, min: number, max: number, match?: boolean | undefined): boolean;
 }
@@ -64,29 +57,20 @@ Number.prototype.toPaddedString = function(length: number, radix: number): strin
 }
 
 /**
- * 将数字转换为十六进制
- *
- * @return 转换结果
- */
-Number.prototype.toColorPart = function(): string {
-  return this.toPaddedString(2, 16);
-}
-
-/**
  * 判断数字是否为奇数
  *
  * @param num 需要判断的数字
- * @return boolean
+ * @return boolean 数字是为奇数返回 true；否则返回 false
  */
 Number.isOdd = function(num: number): boolean {
 	return num % 2 === 1;
 }
 
 /**
- * 判断数字是否为奇数
+ * 判断数字是否为偶数
  *
  * @param num 需要判断的数字
- * @return boolean
+ * @return boolean 数字是为偶数返回 true；否则返回 false
  */
 Number.isEven = function(num: number): boolean {
 	return num % 2 === 0;
@@ -99,7 +83,7 @@ Number.isEven = function(num: number): boolean {
  * @param min 最小值
  * @param max 最大值
  * @param match 是否包含最小值或最大值
- * @return boolean
+ * @return boolean 数字是否在另两个数字之间，返回 true；否则返回 false
  */
 Number.isBetween = function(num: number, min: number, max: number, match: boolean | undefined = false): boolean {
 	min = min||0;
