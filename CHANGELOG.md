@@ -1,13 +1,13 @@
 # 更新日志
 
-## v2.0.1（）
+## [v2.0.1]（）
 
 ### 废弃
 
 - 废弃 Number 对象 toColorPart 方法
 
 
-## v2.0.0（2022-02-09）
+## [v2.0.0](https://github.com/buession/buession-prototype/releases/tag/2.0.0)（2022-02-09）
 
 ### 优化
 
@@ -15,14 +15,14 @@
 - 修改全局类注册到 window 方式
 
 
-## v1.1.2（2022-01-07）
+## [v1.1.2](https://github.com/buession/buession-prototype/releases/tag/1.1.2)（2022-01-07）
 
 ### BUG 修复
 
 - document、windows Object.defineProperty 定义的属性 can't redefine non-configurable property BUG
 
 
-## v1.1.1（2021-12-30）
+## [v1.1.1](https://github.com/buession/buession-prototype/releases/tag/1.1.1)（2021-12-30）
 
 
 ### 新特性
