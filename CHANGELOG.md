@@ -1,6 +1,16 @@
 # 更新日志
 
-## [v2.0.1]（）
+## [v2.0.1](https://github.com/buession/buession-prototype/releases/tag/2.0.1)（）
+
+### 新特性
+
+- String 增加非空判断方法：isNotEmpty
+
+### BUG 修复
+
+- 修复 Object.isSymbol 异常
+- 修复 String.stripTag 删除标签不准备的 BUG
+
 
 ### 废弃
 

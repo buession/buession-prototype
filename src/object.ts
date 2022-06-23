@@ -271,12 +271,8 @@ Object.isSymbol = function(obj: any): boolean {
 		return true;
 	}
 
-	const toString = Symbol.prototype.toString;
-	if (toString.call(obj) !== "[object Symbol]") {
-		return false;
-	}
-
 	try {
+    const toString = Symbol.prototype.toString;
 		if (typeof obj.valueOf() !== "symbol") {
 			return false;
 		}

@@ -17,7 +17,7 @@ interface String {
    * @param str 与此 String 进行比较的对象
    * @return boolean
    */
-  equals(str: any): boolean;
+  equals(str: string | undefined | null): boolean;
 
   /**
    * 判断字符串是否相等，不考虑大小写
@@ -25,7 +25,7 @@ interface String {
    * @param str 与此 String 进行比较的对象
    * @return boolean
    */
-  equalsIgnoreCase(str: any): boolean;
+  equalsIgnoreCase(str: string | undefined | null): boolean;
 
   /**
    * 判断是否为空字符串
@@ -33,6 +33,13 @@ interface String {
    * @return boolean
    */
   isEmpty(): boolean;
+
+  /**
+   * 判断是否不为空字符串
+   *
+   * @return boolean
+   */
+  isNotEmpty(): boolean;
 
   /**
    * 判断是否为空白字符串
@@ -142,7 +149,7 @@ interface String {
   stripTag(tag: string): string;
 
   /**
-   * 删除标签
+   * 批量删除 HTML 标签
    *
    * @param tags 删除指定的标签
    * @return 删除标签后的字符串  
@@ -168,7 +175,7 @@ interface String {
    * 返回一个数组的字符串表示形式
    *
    * @param useDoubleQuotes 是否使用双引号引住
-   * @return 后的字符串
+   * @return 数组的字符串表示形式
    */
   inspect(useDoubleQuotes: boolean): string;
 
@@ -217,7 +224,7 @@ String.prototype.exists = function(str: string): boolean {
  * @param str 与此 String 进行比较的对象
  * @return boolean
  */
-String.prototype.equals = function(str: any): boolean {
+String.prototype.equals = function(str: string | undefined | null): boolean {
   return Object.isUndefinedOrNull(str) === false && this === str.toString();
 }
 
@@ -227,9 +234,9 @@ String.prototype.equals = function(str: any): boolean {
  * @param str 与此 String 进行比较的对象
  * @return boolean
  */
-String.prototype.equalsIgnoreCase = function(str: any): boolean {
-  if (typeof str === 'undefined' || str === null) {
-    return false;
+String.prototype.equalsIgnoreCase = function(str: string | undefined | null): boolean {
+  if (Object.isUndefinedOrNull(str)) {
+    return true;
   } else {
     return this.toLowerCase() === str.toString().toLowerCase();
   }
@@ -242,6 +249,15 @@ String.prototype.equalsIgnoreCase = function(str: any): boolean {
  */
 String.prototype.isEmpty = function(): boolean {
   return this.length === 0;
+}
+
+/**
+ * 判断是否不为空字符串
+ *
+ * @return boolean
+ */
+String.prototype.isNotEmpty = function(): boolean {
+  return this.length > 0;
 }
 
 /**
@@ -388,11 +404,11 @@ String.prototype.unescapeHTML = function(): string {
  * @returns 删除标签后的字符串
  */
 String.prototype.stripTag = function(tag: string): string {
-  return this.replace(new RegExp("<" + tag + "(\s+(\"[^\"]*\"|'[^']*'|[^>])+)?>|<\/" + tag + ">", "gi"), "");
+  return this.replace(new RegExp("<" + tag + "(\\s+(\"[^\"]*\"|'[^']*'|[^>])+)?(\/)?>|<\/" + tag + ">", "gi"), "");
 }
 
 /**
- * 删除标签
+ * 批量删除 HTML 标签
  *
  * @param tags 删除指定的标签
  * @return 删除标签后的字符串
