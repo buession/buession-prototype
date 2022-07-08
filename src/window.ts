@@ -14,44 +14,11 @@ interface Window {
   readonly clipboardData: ClipboardData;
 
   /**
-   * 设为首页
-   *
-   * @param url 设为首页的 URL
-   * @param title title
-   */
-  setHomePage(url?: string, title?: string): void;
-
-  /**
-   * 加入收藏夹
-   *
-   * @param url 加入收藏夹 URL
-   * @param title title
-   */
-  addFavorite(url?: string, title?: string): void;
-
-  /**
-   * 字符串复制到剪贴板
+   * 将字符串复制到剪贴板
    *
    * @param str 字符串
    */
   copy(str: string): void;
-}
-
-interface Location {
-  /**
-   * 获取所有的请求参数及值
-   * 
-   * @return 所有的请求参数及值
-   */
-  getParameters(): Record<string, any>;
-
-  /**
-   * 获取指定请求参数的值
-   *
-   * @param name 参数名
-   * @return 指定请求参数的值
-   */
-  getParameter(name: string): any;
 }
 
 interface Browser {
@@ -76,6 +43,23 @@ interface Browser {
   readonly isMobile: boolean;
 }
 
+interface Location {
+  /**
+   * 获取所有的请求参数及值
+   * 
+   * @return 所有的请求参数及值
+   */
+  getParameters(): Record<string, any>;
+
+  /**
+   * 获取指定请求参数的值
+   *
+   * @param name 参数名
+   * @return 指定请求参数的值
+   */
+  getParameter(name: string): any;
+}
+
 type ClipboardDataFormat = "text" | "url" | "file" | "html" | "image";
 
 declare var Window: {
@@ -84,16 +68,16 @@ declare var Window: {
   new(): Window;
 };
 
-declare var Location: {
-  prototype: Location;
-
-  new(): Location;
-};
-
 declare var Browser: {
   prototype: Browser;
 
   new(): Browser;
+};
+
+declare var Location: {
+  prototype: Location;
+
+  new(): Location;
 };
 
 interface ClipboardData {
@@ -126,7 +110,7 @@ Object.defineProperty(window, "browser", {
 });
 
 /**
- * 字符串复制到剪贴板
+ * 将字符串复制到剪贴板
  *
  * @param str 字符串
  */
