@@ -10,6 +10,7 @@
 
 - 修复 Object.isSymbol 异常
 - 修复 String.stripTag 删除标签不准备的 BUG
+- 修复 String.equalsIgnoreCase BUG
 
 
 ### 废弃

@@ -225,7 +225,7 @@ String.prototype.exists = function(str: string): boolean {
  * @return boolean
  */
 String.prototype.equals = function(str: string | undefined | null): boolean {
-  return Object.isUndefinedOrNull(str) === false && this === str.toString();
+  return Object.isUndefinedOrNull(str) == false && this === str;
 }
 
 /**
@@ -235,11 +235,7 @@ String.prototype.equals = function(str: string | undefined | null): boolean {
  * @return boolean
  */
 String.prototype.equalsIgnoreCase = function(str: string | undefined | null): boolean {
-  if (Object.isUndefinedOrNull(str)) {
-    return true;
-  } else {
-    return this.toLowerCase() === str.toString().toLowerCase();
-  }
+  return str !== undefined && str !== null && this.toLowerCase() === str.toLowerCase();
 }
 
 /**
