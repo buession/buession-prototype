@@ -1,5 +1,13 @@
 # 更新日志
 
+## [v2.0.2](https://github.com/buession/buession-prototype/releases/tag/2.0.2)（2022-10-01）
+
+### 🐞 BUG 修复
+
+- 修复 Date.format 秒钟取值错误的问题
+- 修复 Date.format 12 小时时制的 BUG
+
+
 ## [v2.0.1](https://github.com/buession/buession-prototype/releases/tag/2.0.1)（2022-07-08）
 
 ### ⭐ 新特性

@@ -293,6 +293,17 @@ Date.prototype.format = function(format: string): string {
 		"h": function(pattern: string) {
 			console.debug("h => pattern: " + pattern);
 	    const $hour = $this.getHours();
+	    let result = $hour % 12 === 0 ? "12" : $hour % 12;
+	    
+	    result = $hour < 10 ? "0" + $hour : "" + $hour;
+
+	    return result.substring(2 - pattern.length);
+		},
+
+		// 小时
+		"H": function(pattern: string) {
+			console.debug("H => pattern: " + pattern);
+	    const $hour = $this.getHours();
 	    const result = $hour < 10 ? "0" + $hour : "" + $hour;
 
 	    return result.substring(2 - pattern.length);
@@ -310,7 +321,7 @@ Date.prototype.format = function(format: string): string {
 		// 秒钟
 		"s": function(pattern: string) {
 			console.debug("s => pattern: " + pattern);
-	    const $seconds = $this.getMinutes();
+	    const $seconds = $this.getSeconds();
 	    const result = $seconds < 10 ? "0" + $seconds : "" + $seconds;
 
 	    return result.substring(2 - pattern.length);
