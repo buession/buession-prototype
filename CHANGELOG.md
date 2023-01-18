@@ -4,7 +4,7 @@
 
 ### ⭐ 新特性
 
-- Document 增加 httpOnly 属性，用于操作 cookie
+- Document 增加 httpCookie 属性，用于操作 cookie
 
 
 ## [v2.0.2](https://github.com/buession/buession-prototype/releases/tag/2.0.2)（2022-10-01）
