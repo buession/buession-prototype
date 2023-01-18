@@ -1,5 +1,12 @@
 # 更新日志
 
+## [v2.1.0](https://github.com/buession/buession-prototype/releases/tag/2.1.0)（2023-01-18）
+
+### ⭐ 新特性
+
+- Document 增加 httpOnly 属性，用于操作 cookie
+
+
 ## [v2.0.2](https://github.com/buession/buession-prototype/releases/tag/2.0.2)（2022-10-01）
 
 ### 🐞 BUG 修复

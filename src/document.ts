@@ -95,6 +95,13 @@ interface Document {
   readonly msFullscreenElement: Element | null;
 
   /**
+   * 获取 Cookie 对象
+   * 
+   * @return Cookie 对象
+   */
+  readonly httpCookie: Cookie;
+
+  /**
    * 请求进入全屏模式
    * 
    * @return Promise
@@ -167,6 +174,139 @@ interface HTMLElement {
   msRequestFullscreen(): Promise<void>;
 }
 
+enum SameSite {
+  NONE = 'None',
+
+  LAX = 'Lax',
+
+  STRICT = 'Strict'
+}
+
+interface CookieOptions {
+  /**
+   * Cookie 作用域
+   */
+  domain?: String;
+
+  /**
+   * Cookie 作用路径
+   */
+  path?: String;
+
+  /**
+   * Cookie 过期时间
+   */
+  expires?: Number | Date;
+
+  /**
+   * 是否启用安全 Cookie
+   */
+  secure?: Boolean;
+
+  /**
+   * 是否为 HttpOnly
+   */
+  httpOnly?: Boolean;
+
+  /**
+   * SameSite
+   */
+  sameSite?: SameSite;
+}
+
+interface Cookie {
+  /**
+   * 设置 Cookie 值
+   * 
+   * @param name Cookie 名称
+   * @param value Cookie 值
+   * @param options Cookie 选项
+   * @return Cookie 值
+   */
+  set(name: string, value: string | null | undefined, options?: CookieOptions): string;
+
+  /**
+   * 获取 Cookie 值
+   * 
+   * @param name Cookie 名称
+   * @return Cookie 值；不存在时，返回 null
+   */
+  get(name: string): string | null;
+
+  /**
+   * 删除 Cookie
+   * 
+   * @param name Cookie 名称
+   * @param options Cookie 选项
+   */
+  delete(name: string, options?: CookieOptions): void;
+}
+
+class CookieInstance implements Cookie {
+  public constructor () {
+  }
+
+  public set(name: string, value: string | null | undefined, options?: CookieOptions): string {
+    const $name = name = encodeURIComponent(name)
+      .replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent);
+    const $value = value ? encodeURIComponent(value)
+      .replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent) : '';
+    
+    let stringifiedAttributes = '';
+
+    if (options) {
+      stringifiedAttributes += options.domain  ? '; domain=' + options.domain : '';
+      stringifiedAttributes += options.path  ? '; path=' + options.path : '';
+
+      if (options.expires) {
+        const $expiresDate = options.expires instanceof Date ? options.expires : new Date(Date.now() + (options.expires as number) * 864e5);
+
+        stringifiedAttributes += options.expires  ? '; expires=' + $expiresDate.toUTCString() : '';
+      }
+
+      stringifiedAttributes += options.sameSite  ? '; sameSite=' + options.sameSite : '';
+
+      if (Object.isBoolean(options.secure) && options.secure) {
+        stringifiedAttributes += options.expires  ? '; secure' : '';
+      }
+
+      if (Object.isBoolean(options.httpOnly) && options.httpOnly) {
+        stringifiedAttributes += options.httpOnly  ? '; httpOnly' : '';
+      }
+    }
+
+    return document.cookie = $name + '=' + $value + stringifiedAttributes;
+  }
+
+  public get(name: string): string | null {
+    const cookies = document.cookie ? document.cookie.split('; ') : [];
+
+    for (let i = 0; i < cookies.length; i++) {
+      const parts = cookies[i].split('=');
+      const $name = decodeURIComponent(parts[0]);
+      let $value = parts.slice(1).join('=');
+
+      if ($name === name) {
+        if ($value[0] === '"') {
+          $value = $value.slice(1, -1)
+        }
+
+        return $value.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent);
+      }
+    }
+  
+    return null;
+  }
+
+  public delete(name: string, options?: CookieOptions): void {
+    const $options = options ? options : {};
+
+    $options.expires = -1;
+
+    this.set(name, '', $options);
+  }
+}
+
 declare var Document: {
   prototype: Document;
 
@@ -228,6 +368,17 @@ Object.defineProperty(document, "fullScreenElement", {
       )
     )
   ),
+  configurable: true,
+  writable: false
+});
+
+/**
+ * 返回 Cookie 对象
+ * 
+ * @return Cookie 对象
+ */
+Object.defineProperty(document, "httpCookie", {
+  value: new CookieInstance(),
   configurable: true,
   writable: false
 });
