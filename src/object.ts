@@ -179,6 +179,15 @@ interface ObjectConstructor {
    */
   isUndefinedOrNull(obj: any): boolean;
 
+	/**
+	 * 判断两个对象是否相等
+	 * 
+	 * @param obj1 一个对象
+	 * @param obj2 用于和 obj1 比较的对象
+	 * @return 当两个对象相等时，返回 true；否则，返回 false
+	 */
+	equals(obj1: any, obj2: any): boolean;
+
   /**
    * 克隆对象
    *
@@ -186,6 +195,15 @@ interface ObjectConstructor {
    * @return 新对象实例
    */
   clone(obj: any): any;
+
+	/**
+	 * 克隆对象，但需要删除指定属性
+	 * 
+	 * @param obj 任意对象
+	 * @param fields 需要删除的属性
+   * @return 新对象实例
+	 */
+	omit<T extends object, K extends keyof T> (obj: T, ...fields: K[]): Omit<T, K>;
 }
 
 declare var Object: ObjectConstructor;
@@ -448,4 +466,57 @@ Object.clone = function(obj: any): any {
 	}
 
 	return obj;
+}
+
+/**
+ * 判断两个对象是否相等
+ * 
+ * @param obj1 一个对象
+ * @param obj2 用于和 obj1 比较的对象
+ * @return 当两个对象相等时，返回 true；否则，返回 false
+ */
+Object.equals = function(obj1: any, obj2: any): boolean {
+	if (obj1 === obj2) {
+		return true;
+	} else if (!(obj1 instanceof Object) || !(obj2 instanceof Object)) {
+		return false;
+	} else if (obj1.constructor !== obj2.constructor) {
+		return false;
+	} else if (Object.isArray(obj1) && Object.isArray(obj2) && obj1.length === obj2.length) {
+		for (let i = 0; i < obj1.length; i++) {
+			if (Object.equals(obj1[i], obj2[i]) === false) {
+				return false
+			}
+		}
+	}else if (Object.isObject(obj1) && Object.isObject(obj2) && Object.keys(obj1).length === Object.keys(obj2).length) {
+		for (const key in obj1) {
+			if (obj1.hasOwnProperty.call(key)) {
+				if (Object.equals(obj1[key], obj2[key]) === false) {
+					return false
+				}
+			}
+		}
+	} else {
+		return false;
+	}
+
+	return true;
+}
+
+/**
+ * 克隆对象，但需要删除指定属性
+ * 
+ * @param obj 任意对象
+ * @param fields 需要删除的属性
+ * @return 新对象实例
+ */
+Object.omit = function<T extends object, K extends keyof T>(obj: T, ...fields: K[]): Omit<T, K> {
+	const result = Object.assign({}, obj);
+
+  for (let i = 0; i < fields.length; i++) {
+    const key = fields[i];
+    delete result[key];
+  }
+  
+  return result;
 }

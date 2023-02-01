@@ -1,5 +1,13 @@
 # 更新日志
 
+## [v2.2.0](https://github.com/buession/buession-prototype/releases/tag/2.2.0)（2023-01-18）
+
+### ⭐ 新特性
+
+- Object 增加 omit 方法，支持对象拷贝，并剔除指定属性
+- Object 增加 equals 方法，深度比较两个对象是否相同
+
+
 ## [v2.1.0](https://github.com/buession/buession-prototype/releases/tag/2.1.0)（2023-01-18）
 
 ### ⭐ 新特性

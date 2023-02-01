@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>buession prototype</title>
+  </head>
+  <body>
+    <script src="../dist/prototype.umd.js"></script>
+    <script type="text/javascript">
+      var source = {
+        id: 1,
+        name: 'buession',
+        year: 2023
+      };
+      var target = Object.omit(source, "id", "year");
+      var nSource1 = source;
+      var nSource2 = Object.assign({}, source);
+      console.log(target);
+
+
+      console.log("字符串比较：" + Object.equals("a", "a"));
+      console.log("字符串比较：" + Object.equals("a", "A"));
+      console.log("整型比较：" + Object.equals(1, 1));
+      console.log("整型比较：" + Object.equals(1, 1.0));
+      console.log("浮点型比较：" + Object.equals(1.0, 1.0));
+      console.log("整型和数字字符串比较：" + Object.equals(1, "1"));
+      console.log("数组比较：" + Object.equals([1], [1]));
+      console.log("数组比较：" + Object.equals([1, true], [1, 1]));
+      console.log("对象比较：" + Object.equals(window, window));
+      console.log("对象比较：" + Object.equals(source, target));
+      console.log("对象比较：" + Object.equals(source, nSource1));
+      console.log("对象比较：" + Object.equals(source, nSource2));
+    </script>
+  </body>
+</html>
