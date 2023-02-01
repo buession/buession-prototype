@@ -1,6 +1,6 @@
 # 更新日志
 
-## [v2.2.0](https://github.com/buession/buession-prototype/releases/tag/2.2.0)（2023-01-18）
+## [v2.2.0](https://github.com/buession/buession-prototype/releases/tag/2.2.0)（2023-02-01）
 
 ### ⭐ 新特性
 
