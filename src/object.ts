@@ -445,30 +445,6 @@ Object.isUndefinedOrNull = function(obj: any): boolean {
 }
 
 /**
- * 克隆对象
- *
- * @param obj 任意对象
- * @return 新对象实例
- */
-Object.clone = function(obj: any): any {
-	if (Object.isString(obj)) {
-		return String(obj);
-	} else if (Object.isArray(obj)) {
-		return Array.prototype.slice.apply(obj);
-	} else if (Object.isPlainObject(obj)) {
-		const result = {};
-
-		Object.keys(obj).forEach(name => {
-			result[name] = Object.clone(obj[name]);
-		});
-
-		return result;
-	}
-
-	return obj;
-}
-
-/**
  * 判断两个对象是否相等
  * 
  * @param obj1 一个对象
@@ -501,6 +477,30 @@ Object.equals = function(obj1: any, obj2: any): boolean {
 	}
 
 	return true;
+}
+
+/**
+ * 克隆对象
+ *
+ * @param obj 任意对象
+ * @return 新对象实例
+ */
+Object.clone = function(obj: any): any {
+	if (Object.isString(obj)) {
+		return String(obj);
+	} else if (Object.isArray(obj)) {
+		return Array.prototype.slice.apply(obj);
+	} else if (Object.isPlainObject(obj)) {
+		const result = {};
+
+		Object.keys(obj).forEach(name => {
+			result[name] = Object.clone(obj[name]);
+		});
+
+		return result;
+	}
+
+	return obj;
 }
 
 /**
