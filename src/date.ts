@@ -115,7 +115,7 @@ Date.prototype.getDayOfYear = function(): number {
 	const month_days = this.isLeapYear() == true ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 	let days = this.getDate();
 
-	for (let m = 0; m < this.getMonth(); m++) {
+	for (let m = 0, month = this.getMonth(); m < month; m++) {
 		days += month_days[m];
 	}
 
@@ -189,28 +189,36 @@ Date.prototype.format = function(format: string): string {
 		"WW": 	["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 		"WC":	["\u65E5", "\u4E00", "\u4E8C", "\u4E09", "\u56DB", "\u4E94", "\u516D"]
 	};
+	let season = -1;
 	const seasonFn = () => Math.floor(($this.getMonth() + 3) / 3);
-	const $funcs:Record<string, Function> = {
+	const $funcs: Record<string, Function> = {
 		// 年
 		"y": function(pattern: string) {
 			return ($this.getFullYear() + "").substring(4 - pattern.length);
 		},
 
 		// 季度（1 到 4）
-		"n": function(pattern: string) {
-			return seasonFn();
+		"n": function() {
+			if (season === -1) {
+				season = seasonFn();
+			}
+			return season;
 		},
 
 		// 季度名称
-		"N": function(pattern: string) {
-			const n = seasonFn() - 1;
-			return _season_map["N"][n];
+		"N": function() {
+			if (season === -1) {
+				season = seasonFn();
+			}
+			return _season_map["N"][season - 1];
 		},
 
 		// 季度中文名称
-		"A": function(pattern: string){
-			const n = seasonFn() - 1;
-			return _season_map["A"][n];
+		"A": function(){
+			if (season === -1) {
+				season = seasonFn();
+			}
+			return _season_map["A"][season - 1];
 		},
 
 		// 月
@@ -222,47 +230,47 @@ Date.prototype.format = function(format: string): string {
 		},
 
 		// 月（Jan 到 Dec）
-		"f": function(pattern: string) {
+		"f": function() {
 			const $month = $this.getMonth();
 			return _month_map["f"][$month];
 		},
 
 		// 月（January 到 December）
-		"F": function(pattern: string) {
+		"F": function() {
 			const $month = $this.getMonth();
 			return _month_map["F"][$month];
 		},
 
 		// 月，中文名称
-		"C": function(pattern: string) {
+		"C": function() {
 			const $month = $this.getMonth();
 			return _month_map["C"][$month];
 		},
 
 		// 星期数字，0 到 6 表示
-		"e": function(pattern: string) {
+		"e": function() {
 			return $this.getDay();
 		},
 
 		// 星期数字，1 到 7 表示
-		"E": function(pattern: string) {
+		"E": function() {
 			return $this.getDay() + 1;
 		},
 
 		// 星期英文缩写
-		"l": function(pattern: string) {
+		"l": function() {
 			const $weekday = $this.getDay();
 			return _weekday_map["W"][$weekday];
 		},
 
 		// 星期英文全称
-		"L": function(pattern: string) {
+		"L": function() {
 			const $weekday = $this.getDay();
 			return _weekday_map["WC"][$weekday];
 		},
 
 		// 星期中文名称
-		"w": function(pattern: string) {
+		"w": function() {
 			const $weekday = $this.getDay();
 			return _weekday_map["WC"][$weekday];
 		},
@@ -279,7 +287,7 @@ Date.prototype.format = function(format: string): string {
 		"h": function(pattern: string) {
 	    const $hour = $this.getHours();
 	    let result = $hour % 12 === 0 ? "12" : $hour % 12;
-	    
+
 	    result = $hour < 10 ? "0" + $hour : "" + $hour;
 
 	    return result.substring(2 - pattern.length);
@@ -320,11 +328,6 @@ Date.prototype.format = function(format: string): string {
 
 	return format.replace(/([ynNAMfFCdYTjeElLwWiohHmsSaOPZ])+/g, function(all: string, t: string) {
 	  const fn = $funcs[t];
-
-	  if(Object.isFunction(fn) === true){
-	    return fn(all);
-	  }
-
-	  return all;
+	  return Object.isFunction(fn) === true ? fn(all) : all;
 	});
 }

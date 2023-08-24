@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>buession prototype</title>
+  </head>
+  <body>
+    <script src="../dist/prototype.umd.js"></script>
+    <script type="text/javascript">
+      var arrs = [1, 2, 2, 3, 5];
+      console.log(arrs.unique());
+      var ret = arrs.without(3);
+      console.log(ret);
+      arrs.clear();
+      console.log(ret);
+    </script>
+  </body>
+</html>

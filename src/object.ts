@@ -340,6 +340,7 @@ Object.isArray = function(obj: any): boolean {
 Object.isString = function(obj: any): boolean {
 	return Object.type(obj) === "string";
 }
+
 /**
  * 判断对象是否为数字对象
  *
@@ -491,10 +492,10 @@ Object.clone = function(obj: any): any {
 	} else if (Object.isArray(obj)) {
 		return Array.prototype.slice.apply(obj);
 	} else if (Object.isPlainObject(obj)) {
-		const result = {};
+		const result = Object.create(null);
 
-		Object.keys(obj).forEach(name => {
-			result[name] = Object.clone(obj[name]);
+		Object.keys(obj).forEach(key => {
+			result[key] = Object.clone(obj[key]);
 		});
 
 		return result;
@@ -511,7 +512,7 @@ Object.clone = function(obj: any): any {
  * @return 新对象实例
  */
 Object.omit = function<T extends object, K extends keyof T>(obj: T, ...fields: K[]): Omit<T, K> {
-	const result = Object.assign({}, obj);
+	const result = Object.clone(obj);
 
   for (let i = 0; i < fields.length; i++) {
     const key = fields[i];

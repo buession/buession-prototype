@@ -151,7 +151,7 @@ Window.prototype.copy = function(str: string): void {
  */
 Location.prototype.getParameters = function(): Record<string, any> {
   let queryString = this.search;
-  const parameters: Record<string, any> = new Object();
+  const parameters: Record<string, any> = {};
 
   if (queryString.indexOf("?") != -1) {
     queryString = queryString.substring(1);

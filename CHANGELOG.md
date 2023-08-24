@@ -1,5 +1,18 @@
 # 更新日志
 
+## [v2.2.2](https://github.com/buession/buession-prototype/releases/tag/2.2.2)（2023-08-24）
+
+### ⏪ 优化
+- 代码优化
+
+
+## [v2.2.1](https://github.com/buession/buession-prototype/releases/tag/2.2.1)（2023-03-31）
+
+### ⏪ 优化
+- 代码优化
+- 删除 debug 信息
+
+
 ## [v2.2.0](https://github.com/buession/buession-prototype/releases/tag/2.2.0)（2023-02-01）
 
 ### ⭐ 新特性

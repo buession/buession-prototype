@@ -26,15 +26,14 @@ Math.rand = function(min: number, max?: number): number {
   min = min || 0;
 	max = max || Number.MAX_SAFE_INTEGER;
 
-	let result = Math.random() * (max - min + 1) + min;
-
-	result = Math.round(result);
+	const rand = Math.random() * (max - min + 1) + min;
+	const result = Math.round(rand);
 
 	if (result < min) {
-		result = min;
+		return min;
 	} else if(result > max) {
-		result = max
-	}
-
-	return result;
+		return max
+	} else {
+    return result;
+  }
 }

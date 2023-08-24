@@ -4,6 +4,7 @@
     "target": "es5",
     "module": "esnext",
     "strict": true,
+    "alwaysStrict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -11,19 +12,18 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors": true,
     "noEmit": true,
     "noEmitOnError": true,
     "noEmitHelpers": true,
     "importHelpers": true,
+    "preserveSymlinks": true,
     "rootDir": "./src",
     "outDir": "./dist",
-    "declaration": true,
-    "declarationDir": "./types",
+    "declaration": false,
     "sourceMap": true,
     "allowJs": true,
     "types": [
-      "webpack-env"
+      "node"
     ],
     "paths": {
       "@/*": [
@@ -42,10 +42,7 @@
     ]
   },
   "include": [
-    "src/**/*.js",
-    "src/**/*.jsx",
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",

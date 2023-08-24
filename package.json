@@ -1,7 +1,7 @@
 {
   "name": "@buession/prototype",
   "alias": "prototype",
-  "version": "v2.2.1",
+  "version": "v2.2.2",
   "description": "A native object extension framework for Javascript.",
   "homepage": "https://prototype.buession.com/",
   "author": {
@@ -17,7 +17,7 @@
   "bugs": "https://github.com/buession/buession-prototype/issues",
   "private": false,
   "scripts": {
-    "build": "npm cache clean --force && rm -fR ./dist && rm -fR ./types && rollup -c ./rollup.config.js && mv ./dist/types ./",
+    "build": "rm -fR ./dist && rm -fR ./types && mkdir ./types && rollup -c ./rollup.config.js && tsc -b ./tsconfig.types.json",
     "lint": "eslint -c ./.eslintrc.js './{src}/**/*.{js,ts,jsx,tsx}'",
     "codecov": "codecov",
     "release": "yarn build && yarn publish --access public"
@@ -57,9 +57,10 @@
     "eslint-plugin-standard": "^4.0.0",
     "rollup": "^2.60.2",
     "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.6.2",
     "typescript": "~4.1.5"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"

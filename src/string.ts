@@ -275,10 +275,11 @@ String.prototype.repeat = function(count: number): string {
   if (count < 1) {
     return "";
   } else {
-    let result = this.toString();
+    const s = this.toString();
+    let result = s;
  		
     for (let i = 0; i < count; i++) {
-      result += this.toString();
+      result += s;
     }
 
     return result;

@@ -43,7 +43,6 @@ class Optional<T> {
     return new Optional(null as unknown as T);
   }
 
-
   /**
    * 如果 value 不为 null 或 undefined，则返回 value 的值；否则抛出异常
    * 
