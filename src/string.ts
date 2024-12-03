@@ -80,7 +80,7 @@ interface String {
    * @return 截取后的字符串
    *		 实际截取长度：当 length 小于等于 truncation 的长度时为，length；当 length 大于 truncation 的长度时为，length - truncation.length
    */
-  truncation(length: number, truncation: string): string;
+  truncation(length: number, truncation?: string): string;
 
   /**
    * 删除字符串开头的空白字符
@@ -314,7 +314,7 @@ String.prototype.right = function(length: number): string {
  * @return 截取后的字符串
  *		   实际截取长度：当 length 小于等于 truncation 的长度时为，length；当 length 大于 truncation 的长度时为，length - truncation.length
  */
-String.prototype.truncation = function(length: number, truncation: string = '...'): string {
+String.prototype.truncation = function(length: number, truncation?: string): string {
   truncation = truncation || "...";
   return this.length > length ? this.slice(0, length <= truncation.length ? length : length - truncation.length) + truncation : String(this);
 }
