@@ -19,6 +19,17 @@ interface Window {
    * @param str 字符串
    */
   copy(str: string): void;
+
+  /**
+   * 延时执行
+   *
+   * @param func 延时执行方法
+   * @param wait 延时时长（单位：毫秒）
+   * @param args 方法参数
+   * 
+   * @return 方法执行结果
+   */
+  delay(func: Function, wait: number, ...args: any): any;
 }
 
 interface Browser {
@@ -143,6 +154,28 @@ Window.prototype.copy = function(str: string): void {
     console.error(e);
   }
 }
+
+/**
+ * 延时执行
+ *
+ * @param func 延时执行方法
+ * @param wait 延时时长（单位：毫秒）
+ * @param args 方法参数
+ * 
+ * @return 方法执行结果
+ */
+Window.prototype.delay = function(func: Function, wait?: number, ...args: any) {
+  const delayFunc = function(func: Function, wait: number, ...args: any) {
+    if (typeof func != "function") {
+      throw new TypeError("Expected a function");
+    }
+    return setTimeout(function() {
+      func.apply(undefined, args);
+    }, wait);
+  }
+
+  return delayFunc(func, wait || 0, args);
+};
 
 /**
  * 获取所有的请求参数及值
