@@ -251,7 +251,7 @@ class CookieInstance implements Cookie {
       .replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent);
     const $value = value ? encodeURIComponent(value)
       .replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent) : '';
-    
+
     let stringifiedAttributes = '';
 
     if (options) {
