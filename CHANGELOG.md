@@ -1,5 +1,18 @@
 # 更新日志
 
+
+## [v3.0.0](https://github.com/buession/buession-prototype/releases/tag/3.0)（2024-11-20）
+
+### ⭐ 新特性
+
+- Windows 增加方法 delay，延时执行方法
+
+
+### 🔔 变化
+
+- String.truncation truncation 参数为非必须
+
+
 ## [v2.2.2](https://github.com/buession/buession-prototype/releases/tag/2.2.2)（2023-08-24）
 
 ### ⏪ 优化
