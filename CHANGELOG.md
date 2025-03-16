@@ -1,7 +1,14 @@
 # 更新日志
 
 
-## [v3.0.0](https://github.com/buession/buession-prototype/releases/tag/3.0)（2024-11-20）
+## [v3.0.1](https://github.com/buession/buession-prototype/releases/tag/3.0.1)（2025-xx-xx）
+
+### 🐞 BUG 修复
+
+- 修复 Array.compact 返回错误的值
+
+
+## [v3.0.0](https://github.com/buession/buession-prototype/releases/tag/3.0.0)（2024-11-20）
 
 ### ⭐ 新特性
 
