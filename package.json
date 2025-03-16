@@ -1,7 +1,7 @@
 {
   "name": "@buession/prototype",
   "alias": "prototype",
-  "version": "v3.0.0",
+  "version": "v3.0.1",
   "description": "A native object extension framework for Javascript.",
   "homepage": "https://prototype.buession.com/",
   "author": {
@@ -26,14 +26,16 @@
     "buession",
     "prototype"
   ],
-  "main": "dist/prototype.cjs.js",
-  "module": "dist/prototype.esm.js",
+  "main": "lib/index.js",
+  "module": "es/pindex.js",
   "types": "types/index.d.ts",
   "typings": "types/index.d.ts",
   "unpkg": "dist/prototype.min.js",
   "files": [
     "types/",
-    "dist/"
+    "dist/",
+    "es/",
+    "lib/"
   ],
   "devDependencies": {
     "@babel/core": "^7.16.0",
