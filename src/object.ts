@@ -518,6 +518,6 @@ Object.omit = function<T extends object, K extends keyof T>(obj: T, ...fields: K
     const key = fields[i];
     delete result[key];
   }
-  
+
   return result;
 }

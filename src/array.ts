@@ -168,7 +168,7 @@ Array.prototype.merge = Array.prototype.concat;
  * @return 不包含 null/undefined 值元素的数组的新版本
  */
 Array.prototype.compact = function<T>(): Array<T> {
-	return this.filter((value)=>Object.isUndefinedOrNull(value));
+	return this.filter((value)=>Object.isUndefinedOrNull(value) === false);
 }
 
 /**
@@ -177,15 +177,7 @@ Array.prototype.compact = function<T>(): Array<T> {
  * @return 数组元素进行去重后的新版本
  */
 Array.prototype.unique = function<T>(): Array<T> {
-	const temp: Array<T> = new Array();
-
-	return this.filter(function(v: T) {
-    const ret = temp.includes(v) === false;
-
-	  temp.push(v);
-
-	  return ret;
-  });
+	return Array.from(new Set(this));
 }
 
 /**
