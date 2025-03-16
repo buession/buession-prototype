@@ -1,0 +1,13 @@
+{
+  "title": "Buession Prototype",
+  "keywords": "javascript typescript prototype string object array window document",
+  "description": "A native object extension framework for Javascript. ",
+  "author": "buession",
+  "theme": "demo",
+  "root": "src",
+  "pluginsConfig": {
+    "import-asset": {
+      "js": ["/js/stat.js"]
+    }
+  }
+}
