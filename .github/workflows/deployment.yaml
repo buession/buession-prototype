@@ -1,4 +1,4 @@
-name: BuessionPrototype-docs CI
+name: Docs CI
 
 on:
   push:
