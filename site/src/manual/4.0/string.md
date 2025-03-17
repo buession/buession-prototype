@@ -30,6 +30,7 @@
 | [inspect](string.html#inspectusedoublequotes-boolean)                                       | 返回一个数组的字符串表示形式             |
 | [hashCode](string.html#hashcode)                                                            | 获取字符串 hash code                   |
 | [random](string.html#randomlength-number,-type?-randomtype-=-"numeric"-&#124;-"letter"-&#124;-"letter_numeric"-&#124;-"chinese"-&#124;-undefined)                       | 生成随机字符串       |
+| [guid](string.html#guid)                                                                    | 生成 UUID                              |
 
 ---
 
