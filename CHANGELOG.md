@@ -1,6 +1,13 @@
 # 更新日志
 
 
+## [v4.0.0](https://github.com/buession/buession-prototype/releases/tag/4.0.0)（2025-xx-xx）
+
+### ⭐ 新特性
+
+- String 新增生成 UUID 方法
+
+
 ## [v3.0.1](https://github.com/buession/buession-prototype/releases/tag/3.0.1)（2025-03-17）
 
 ### 🐞 BUG 修复
