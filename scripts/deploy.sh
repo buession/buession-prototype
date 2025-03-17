@@ -24,11 +24,7 @@ if [ -z "${PUBLISH_BRANCH}" ]; then
     exit 1
 fi
 
-if [ -d "${PUBLISH_DIR}" ]; then
-    mkdir "${PUBLISH_DIR}"
-fi
-
-cd "${PUBLISH_DIR}" # ./_site
+cd "$(pwd)${PUBLISH_DIR}" # ./_site
 
 # 设置CNAME
 if [ -n "${CNAME}" ]; then 
