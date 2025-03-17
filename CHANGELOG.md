@@ -1,7 +1,7 @@
 # 更新日志
 
 
-## [v3.0.1](https://github.com/buession/buession-prototype/releases/tag/3.0.1)（2025-xx-xx）
+## [v3.0.1](https://github.com/buession/buession-prototype/releases/tag/3.0.1)（2025-03-17）
 
 ### 🐞 BUG 修复
 
