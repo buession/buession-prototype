@@ -261,16 +261,16 @@ class CookieInstance implements Cookie {
       if (options.expires) {
         const $expiresDate = options.expires instanceof Date ? options.expires : new Date(Date.now() + (options.expires as number) * 864e5);
 
-        stringifiedAttributes += options.expires  ? '; expires=' + $expiresDate.toUTCString() : '';
+        stringifiedAttributes += '; expires=' + $expiresDate.toUTCString();
       }
 
       stringifiedAttributes += options.sameSite  ? '; sameSite=' + options.sameSite : '';
 
-      if (Object.isBoolean(options.secure) && options.secure) {
+      if (Object.isBoolean(options.secure) === true && options.secure === true) {
         stringifiedAttributes += options.expires  ? '; secure' : '';
       }
 
-      if (Object.isBoolean(options.httpOnly) && options.httpOnly) {
+      if (Object.isBoolean(options.httpOnly) === true && options.httpOnly === true) {
         stringifiedAttributes += options.httpOnly  ? '; httpOnly' : '';
       }
     }
@@ -294,7 +294,7 @@ class CookieInstance implements Cookie {
         return $value.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent);
       }
     }
-  
+
     return null;
   }
 

@@ -206,6 +206,14 @@ interface StringConstructor {
    * @return 生成结果
    */
   random(length: number, type?: RandomType): string;
+
+  /**
+   * 生成 UUID
+   *
+   * @return UUID
+   * @since 4.0.0
+   */
+  guid(): string;
 }
 
 /**
@@ -466,7 +474,7 @@ String.prototype.inspect = function(useDoubleQuotes): string {
   } else {
     return "'" + escapedString.replace(/'/g, '\\\'') + "'";
   }
- }
+}
 
 /**
  * 获取字符串 hash code
@@ -483,7 +491,7 @@ String.prototype.hashCode = function(): number{
   }
 
   return result;
- }
+}
 
 /**
  * 生成随机字符串
@@ -525,4 +533,18 @@ String.random = function(length: number, type: RandomType = "LETTER_NUMERIC"): s
   }
 
   return result;
+}
+
+/**
+ * 生成 UUID
+ *
+ * @return UUID
+ * @since 4.0.0
+ */
+String.guid = function(): string {
+  function s() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  }
+
+  return s() + s() + '-' + s() + '-' + s() + '-' + s() + '-' + s() + s() + s();
 }

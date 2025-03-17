@@ -127,7 +127,7 @@ Object.defineProperty(window, "browser", {
  */
 Window.prototype.copy = function(str: string): void {
   try {
-    if (Object.isObject(this.clipboardData)) {
+    if (Object.isObject(this.clipboardData) === true) {
       this.clipboardData.setData("text", str);
     } else {
       const fakeElement = document.createElement("textarea");
@@ -186,7 +186,7 @@ Location.prototype.getParameters = function(): Record<string, any> {
   let queryString = this.search;
   const parameters: Record<string, any> = {};
 
-  if (queryString.indexOf("?") != -1) {
+  if (queryString.indexOf("?") !== -1) {
     queryString = queryString.substring(1);
 
     const parts = queryString.split("&");
@@ -198,7 +198,7 @@ Location.prototype.getParameters = function(): Record<string, any> {
       if (Object.isUndefined(parameters[temp[0]])) {
         parameters[temp[0]] = val;
       } else {
-        if (Object.isArray(parameters[temp[0]]) == false) {
+        if (Object.isArray(parameters[temp[0]]) === false) {
           const oldVal = parameters[temp[0]];
 
           delete parameters[temp[0]];

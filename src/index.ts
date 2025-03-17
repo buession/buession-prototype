@@ -1,3 +1,5 @@
+import './core';
+
 import './prototype';
 import './try';
 import './optional';

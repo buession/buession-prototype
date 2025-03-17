@@ -308,7 +308,7 @@ Object.isSymbol = function(obj: any): boolean {
  * @return boolean
  */
 Object.isPromise = function(obj: any): boolean {
-	return Object.isUndefinedOrNull(obj) === false && Object.isFunction(obj.then) && Object.isFunction(obj.catch);
+	return Object.isUndefinedOrNull(obj) === false && Object.isFunction(obj.then) === true && Object.isFunction(obj.catch) === true;
 }
 
 /**
@@ -318,7 +318,7 @@ Object.isPromise = function(obj: any): boolean {
  * @return boolean
  */
 Object.isPrimitive = function(obj: any): boolean {
-	return Object.isBoolean(obj) || Object.isString(obj) || Object.isNumber(obj);
+	return Object.isBoolean(obj) === true || Object.isString(obj) === true || Object.isNumber(obj) === true;
 }
 
 /**
@@ -328,7 +328,7 @@ Object.isPrimitive = function(obj: any): boolean {
  * @return boolean
  */
 Object.isArray = function(obj: any): boolean {
-	return Array.isArray(obj);
+	return Array.isArray(obj) === true;
 }
 
 /**
@@ -442,7 +442,7 @@ Object.isUndefined = function(obj: any): boolean {
  * @return boolean
  */
 Object.isUndefinedOrNull = function(obj: any): boolean {
-	return Object.isUndefined(obj) || Object.isNull(obj);
+	return Object.isUndefined(obj) === true || Object.isNull(obj) === true;
 }
 
 /**
