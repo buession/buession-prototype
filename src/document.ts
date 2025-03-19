@@ -307,12 +307,6 @@ class CookieInstance implements Cookie {
   }
 }
 
-declare var Document: {
-  prototype: Document;
-
-  new(): Document;
-};
-
 /**
  * 检测当前浏览器是否为全屏
  * 
