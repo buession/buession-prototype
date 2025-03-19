@@ -60,4 +60,4 @@ yarn add @buession/prototype
 
 ## License
 
-[MIT License](https://github.com/buession/buession-prototype/blob/master/LICENSE) © 2020-2021
+[MIT License](https://github.com/buession/buession-prototype/blob/master/LICENSE) © 2020-2025
