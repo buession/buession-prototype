@@ -60,7 +60,6 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@types/compression": "^1.7.0",
     "@types/fs-extra": "^9.0.8",
-    "@types/jest": "^28.1.4",
     "@types/koa": "^2.11.6",
     "@types/lodash-es": "^4.17.3",
     "@types/lru-cache": "^5.1.0",
@@ -68,7 +67,6 @@
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^28.1.2",
     "babel-loader": "^8.0.0",
     "babel-plugin-import": "^1.1.1",
     "babel-plugin-inline-import-data-uri": "^1.0.1",
@@ -83,13 +81,11 @@
     "eslint": "^8.3.0",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-markdown": "^2.0.0",
     "eslint-plugin-no-explicit-type-exports": "^0.12.0",
     "fast-glob": "^3.2.7",
     "fs-extra": "^10.0.0",
     "glob": "^7.1.2",
     "globby": "^11.1.0",
-    "gray-matter": "^4.0.3",
     "gulp": "^4.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-strip-code": "^0.1.4",
@@ -115,8 +111,7 @@
     "tsx": "^3.12.10",
     "typedoc": "^0.23.25",
     "typescript": "~4.9.3",
-    "unified": "9.2.2",
-    "url-loader": "^3.0.0"
+    "unified": "9.2.2"
   },
   "lint-staged": {
     "*.{js,ts}": [
