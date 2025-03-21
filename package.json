@@ -83,7 +83,7 @@
     "fs-extra": "^11.3.0",
     "glob": "^11.0.1",
     "globby": "^14.1.0",
-    "gulp": "^4.0.1",
+    "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-strip-code": "^0.1.4",
     "gulp-typescript": "^6.0.0-alpha.1",
