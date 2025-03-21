@@ -11,6 +11,8 @@ const stringify = require('remark-stringify');
 const yamlConfig = require('remark-yaml-config');
 const frontmatter = require('remark-frontmatter');
 
+const pkg = require('../package.json')
+
 let fileAPIs = {};
 const remarkWithYaml = unified()
   .use(parse)
@@ -65,7 +67,7 @@ function sizeSort(nodes) {
 }
 
 function sort(ast, filename) {
-  const nameMatch = filename.match(/^components\/([^/]*)\//);
+  const nameMatch = filename.match(/^src\/([^/]*)\//);
   const componentName = nameMatch[1];
   fileAPIs[componentName] = fileAPIs[componentName] || {
     static: new Set(),
@@ -131,7 +133,7 @@ module.exports = () => {
       '-f, --file [file]',
       'Specify which file to be transformed',
       // default value
-      'components/**/index.+(zh-CN|en-US).md',
+      'src/**/index.+(zh-CN|en-US).md',
     )
     .option('-o, --output [output]', 'Specify component api output path', '~component-api.json')
     .parse(process.argv);
@@ -159,7 +161,7 @@ module.exports = () => {
       }
     })
     .then(() => {
-      console.log(chalk.green(`sort ant-design-vue api successfully!`));
+      console.log(chalk.green(`sort ${pkg.name} api successfully!`));
     });
   /* eslint-enable no-console */
 };

@@ -5,6 +5,8 @@ const getBabelCommonConfig = require('./getBabelCommonConfig');
 const merge2 = require('merge2');
 const through2 = require('through2');
 const babel = require('gulp-babel');
+
+const { rollup } = require('rollup');
 const argv = require('minimist')(process.argv.slice(2));
 
 // const getNpm = require('./getNpm')
@@ -19,20 +21,30 @@ const fs = require('fs');
 const rimraf = require('rimraf');
 const stripCode = require('gulp-strip-code');
 const getTSCommonConfig = require('./getTSCommonConfig');
+const getRollupConfig = require('./getRollupConfig');
 const replaceLib = require('./replaceLib');
 const sortApiTable = require('./sortApiTable');
 
-const packageJson = require(getProjectPath('package.json'));
+const pkg = require(getProjectPath('package.json'));
 const tsDefaultReporter = ts.reporter.defaultReporter();
 const cwd = process.cwd();
 const libDir = getProjectPath('lib');
 const esDir = getProjectPath('es');
+const distDir = getProjectPath('dist');
 
 const tsConfig = getTSCommonConfig();
 
-function dist(done) {
-  rimraf.sync(path.join(cwd, 'dist'));
-  process.env.RUN_ENV = 'PRODUCTION';
+async function dist(done) {
+  console.log('[Parallel] Compile to dist...');
+  rimraf.sync(distDir);
+  
+  const rollupConfig = getRollupConfig();
+  
+    const bundle = await rollup(rollupConfig);
+  
+    await rollupConfig.output.map(output => {
+       bundle.write(output);
+    });
   /*
   const webpackConfig = require(getProjectPath('webpack.build.conf.js'));
   webpack(webpackConfig, (err, stats) => {
