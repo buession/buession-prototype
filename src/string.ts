@@ -285,7 +285,7 @@ String.prototype.repeat = function(count: number): string {
   } else {
     const s = this.toString();
     let result = s;
- 		
+
     for (let i = 0; i < count; i++) {
       result += s;
     }

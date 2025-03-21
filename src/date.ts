@@ -223,11 +223,11 @@ Date.prototype.format = function(format: string): string {
 
 		// 月
 		"M": function(pattern: string) {
-	    const $month = $this.getMonth() + 1;
-	    const result = $month < 10 ? "0" + $month : "" + $month;
+      const $month = $this.getMonth() + 1;
+      const result = $month < 10 ? "0" + $month : "" + $month;
 
-	    return result.substring(2 - pattern.length);
-		},
+      return result.substring(2 - pattern.length);
+    },
 
 		// 月（Jan 到 Dec）
 		"f": function() {
@@ -277,57 +277,57 @@ Date.prototype.format = function(format: string): string {
 
 		// 日
 		"d": function(pattern: string) {
-	    const $date = $this.getDate();
-	    const result = $date < 10 ? "0" + $date : "" + $date;
+			const $date = $this.getDate();
+			const result = $date < 10 ? "0" + $date : "" + $date;
 
-	    return result.substring(2 - pattern.length);
+			return result.substring(2 - pattern.length);
 		},
 
 		// 小时
 		"h": function(pattern: string) {
-	    const $hour = $this.getHours();
-	    let result = $hour % 12 === 0 ? "12" : $hour % 12;
+			const $hour = $this.getHours();
+			let result = $hour % 12 === 0 ? "12" : $hour % 12;
 
-	    result = $hour < 10 ? "0" + $hour : "" + $hour;
+			result = $hour < 10 ? "0" + $hour : "" + $hour;
 
-	    return result.substring(2 - pattern.length);
+			return result.substring(2 - pattern.length);
 		},
 
 		// 小时
 		"H": function(pattern: string) {
-	    const $hour = $this.getHours();
-	    const result = $hour < 10 ? "0" + $hour : "" + $hour;
+			const $hour = $this.getHours();
+			const result = $hour < 10 ? "0" + $hour : "" + $hour;
 
-	    return result.substring(2 - pattern.length);
+			return result.substring(2 - pattern.length);
 		},
 
 		// 分钟
 		"m": function(pattern: string) {
-	    const $minutes = $this.getMinutes();
+			const $minutes = $this.getMinutes();
 			const result = $minutes < 10 ? "0" + $minutes : "" + $minutes;
 
-	    return result.substring(2 - pattern.length);
+			return result.substring(2 - pattern.length);
 		},
 
 		// 秒钟
 		"s": function(pattern: string) {
-	    const $seconds = $this.getSeconds();
-	    const result = $seconds < 10 ? "0" + $seconds : "" + $seconds;
+			const $seconds = $this.getSeconds();
+			const result = $seconds < 10 ? "0" + $seconds : "" + $seconds;
 
-	    return result.substring(2 - pattern.length);
+			return result.substring(2 - pattern.length);
 		},
 
 		// 毫秒
 		"S": function(pattern: string) {
-	    const $mise = $this.getMilliseconds();
-	    const result = $mise < 10 ? "0" + $mise : "" + $mise;
+			const $mise = $this.getMilliseconds();
+			const result = $mise < 10 ? "0" + $mise : "" + $mise;
 
-	    return result.substring(2 - pattern.length);
+			return result.substring(2 - pattern.length);
 		}
 	};
 
 	return format.replace(/([ynNAMfFCdYTjeElLwWiohHmsSaOPZ])+/g, function(all: string, t: string) {
-	  const fn = $funcs[t];
-	  return Object.isFunction(fn) === true ? fn(all) : all;
+		const fn = $funcs[t];
+		return Object.isFunction(fn) === true ? fn(all) : all;
 	});
 }
