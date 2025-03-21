@@ -10,13 +10,14 @@ module.exports = function getRunCmdEnv() {
   });
   // make sure `antd-tools/node_modules/.bin` in the PATH env
   const nodeModulesBinDir = path.join(__dirname, '../../node_modules/.bin');
+  const isWin = isWindows();
 
   Object.entries(env)
     .filter(v => v.slice(0, 1).pop().toLowerCase() === 'path')
     .forEach(v => {
       const key = v.slice(0, 1).pop();
       env[key] = env[key]
-        ? `${nodeModulesBinDir}${isWindows() ? ';' : ':'}${env[key]}`
+        ? `${nodeModulesBinDir}${isWin ? ';' : ':'}${env[key]}`
         : nodeModulesBinDir;
     });
   return env;

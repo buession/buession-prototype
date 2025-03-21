@@ -3,7 +3,7 @@
 const glob = require('glob');
 const fs = require('fs');
 
-const COMPONENT_NAME = /components\/([^/]*)/;
+const COMPONENT_NAME = /src\/([^/]*)/;
 const PROP_NAME = /^\s*\|\s*([^\s|]*)/;
 
 const components = {};
@@ -50,7 +50,7 @@ function printReport(apis) {
 }
 
 module.exports = () => {
-  glob('components/*/*.md', (error, files) => {
+  glob('src/*/*.md', (error, files) => {
     files.forEach(filePath => {
       // Read md file to parse content
       const content = fs.readFileSync(filePath, 'utf8');

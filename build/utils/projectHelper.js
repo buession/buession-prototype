@@ -72,5 +72,5 @@ module.exports = {
   resolve,
   injectRequire,
   getConfig,
-  isThereHaveBrowserslistConfig,
+  isThereHaveBrowserslistConfig
 };

@@ -19,7 +19,7 @@ const remarkWithYaml = unified()
   .use(stringify, {
     paddedTable: false,
     listItemIndent: 1,
-    stringLength: () => 3,
+    stringLength: () => 3
   })
   .use(frontmatter)
   .use(yamlConfig);
@@ -29,9 +29,6 @@ const stream = majo.majo();
 function getCellValue(node) {
   return node.children[0].children[0].value;
 }
-
-// from small to large
-const sizeBreakPoints = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
 const whiteMethodList = ['afterChange', 'beforeChange'];
 
@@ -60,27 +57,18 @@ function alphabetSort(nodes) {
   );
 }
 
-function sizeSort(nodes) {
-  return nodes.sort((...comparison) =>
-    asciiSort(...comparison.map(val => sizeBreakPoints.indexOf(getCellValue(val).toLowerCase()))),
-  );
-}
-
 function sort(ast, filename) {
   const nameMatch = filename.match(/^src\/([^/]*)\//);
   const componentName = nameMatch[1];
   fileAPIs[componentName] = fileAPIs[componentName] || {
     static: new Set(),
-    size: new Set(),
-    dynamic: new Set(),
+    dynamic: new Set()
   };
 
   ast.children.forEach(child => {
     const staticProps = [];
     // prefix with `on`
     const dynamicProps = [];
-    // one of ['xs', 'sm', 'md', 'lg', 'xl']
-    const sizeProps = [];
 
     // find table markdown type
     if (child.type === 'table') {
@@ -91,9 +79,6 @@ function sort(ast, filename) {
         if (groups.isDynamic(value)) {
           dynamicProps.push(node);
           fileAPIs[componentName].dynamic.add(value);
-        } else if (groups.isSize(value)) {
-          sizeProps.push(node);
-          fileAPIs[componentName].size.add(value);
         } else {
           staticProps.push(node);
           fileAPIs[componentName].static.add(value);
@@ -104,8 +89,7 @@ function sort(ast, filename) {
       child.children = [
         child.children[0],
         ...alphabetSort(staticProps),
-        ...sizeSort(sizeProps),
-        ...alphabetSort(dynamicProps),
+        ...alphabetSort(dynamicProps)
       ];
     }
   });
@@ -150,7 +134,6 @@ module.exports = () => {
         Object.keys(fileAPIs).forEach(componentName => {
           data[componentName] = {
             static: [...fileAPIs[componentName].static],
-            size: [...fileAPIs[componentName].size],
             dynamic: [...fileAPIs[componentName].dynamic],
           };
         });

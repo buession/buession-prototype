@@ -1,125 +1,42 @@
 /* eslint-disable no-console */
 const { getProjectPath, getConfig } = require('./utils/projectHelper');
 const runCmd = require('./runCmd');
-const getBabelCommonConfig = require('./getBabelCommonConfig');
+
 const merge2 = require('merge2');
 const through2 = require('through2');
 const babel = require('gulp-babel');
-
-const { rollup } = require('rollup');
-const argv = require('minimist')(process.argv.slice(2));
-
-// const getNpm = require('./getNpm')
-// const selfPackage = require('../package.json')
-const getNpmArgs = require('./utils/get-npm-args');
-const getChangelog = require('./utils/getChangelog');
-const path = require('path');
-// const watch = require('gulp-watch')
-const ts = require('gulp-typescript');
-const gulp = require('gulp');
-const fs = require('fs');
 const rimraf = require('rimraf');
 const stripCode = require('gulp-strip-code');
+
+const argv = require('minimist')(process.argv.slice(2));
+
+const gulp = require('gulp');
+const ts = require('gulp-typescript');
+
+const getBabelCommonConfig = require('./getBabelCommonConfig');
 const getTSCommonConfig = require('./getTSCommonConfig');
-const getRollupConfig = require('./getRollupConfig');
 const replaceLib = require('./replaceLib');
 const sortApiTable = require('./sortApiTable');
 
-const pkg = require(getProjectPath('package.json'));
 const tsDefaultReporter = ts.reporter.defaultReporter();
-const cwd = process.cwd();
+
 const libDir = getProjectPath('lib');
 const esDir = getProjectPath('es');
 const distDir = getProjectPath('dist');
 
-const tsConfig = getTSCommonConfig();
-
 async function dist(done) {
   console.log('[Parallel] Compile to dist...');
   rimraf.sync(distDir);
+
   
-  const rollupConfig = getRollupConfig();
-  
-    const bundle = await rollup(rollupConfig);
-  
-    await rollupConfig.output.map(output => {
-       bundle.write(output);
-    });
-  /*
-  const webpackConfig = require(getProjectPath('webpack.build.conf.js'));
-  webpack(webpackConfig, (err, stats) => {
-    if (err) {
-      console.error(err.stack || err);
-      if (err.details) {
-        console.error(err.details);
-      }
+  runCmd('rollup', ['-c', './rollup.config.js'], code => {
+    if (code) {
+      done(code);
       return;
     }
-
-    const info = stats.toJson();
-    const { dist: { finalize } = {}, bail } = getConfig();
-
-    if (stats.hasErrors()) {
-      (info.errors || []).forEach(error => {
-        console.error(error);
-      });
-      // https://github.com/ant-design/ant-design/pull/31662
-      if (bail) {
-        process.exit(1);
-      }
-    }
-    if (stats.hasWarnings()) {
-      console.warn(info.warnings);
-    }
-
-    const buildInfo = stats.toString({
-      colors: true,
-      children: true,
-      chunks: false,
-      modules: false,
-      chunkModules: false,
-      hash: false,
-      version: false,
-    });
-    console.log(buildInfo);
-    // Additional process of dist finalize
-    if (finalize) {
-      console.log('[Dist] Finalization...');
-      finalize();
-    }
-    done(0);
   });
-  */
+  done();
 }
-
-const tsFiles = ['**/*.ts', '**/*.tsx', '!node_modules/**/*.*', 'typings/**/*.d.ts'];
-
-function compileTs(stream) {
-  return stream
-    .pipe(ts(tsConfig))
-    .js.pipe(
-      through2.obj(function (file, encoding, next) {
-        // console.log(file.path, file.base);
-        file.path = file.path.replace(/\.[jt]sx$/, '.js');
-        this.push(file);
-        next();
-      }),
-    )
-    .pipe(gulp.dest(process.cwd()));
-}
-
-gulp.task('tsc', () =>
-  compileTs(
-    gulp.src(tsFiles, {
-      base: cwd,
-    }),
-  ),
-);
-
-gulp.task('clean', () => {
-  rimraf.sync(getProjectPath('_site'));
-  rimraf.sync(getProjectPath('_data'));
-});
 
 function babelify(js, modules) {
   const babelConfig = getBabelCommonConfig(modules);
@@ -139,7 +56,7 @@ function babelify(js, modules) {
         this.push(file);
       }
       next();
-    }),
+    })
   );
   return stream.pipe(gulp.dest(modules === false ? esDir : libDir));
 }
@@ -148,6 +65,7 @@ function compile(modules) {
   const { compile: { transformTSFile, transformFile } = {} } = getConfig();
   rimraf.sync(modules !== false ? libDir : esDir);
 
+  const tsConfig = getTSCommonConfig(false);
   let error = 0;
 
   // =============================== FILE ===============================
@@ -179,8 +97,8 @@ function compile(modules) {
     sourceStream = sourceStream.pipe(
       stripCode({
         start_comment: '@remove-on-es-build-begin',
-        end_comment: '@remove-on-es-build-end',
-      }),
+        end_comment: '@remove-on-es-build-end'
+      })
     );
   }
 
@@ -191,7 +109,7 @@ function compile(modules) {
         nextFile = Array.isArray(nextFile) ? nextFile : [nextFile];
         nextFile.forEach(f => this.push(f));
         next();
-      }),
+      })
     );
   }
 
@@ -202,7 +120,7 @@ function compile(modules) {
         error = 1;
       },
       finish: tsDefaultReporter.finish,
-    }),
+    })
   );
 
   function check() {
@@ -218,6 +136,15 @@ function compile(modules) {
   const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? esDir : libDir));
   return merge2([tsFilesStream, tsd, transformFileStream].filter(s => s));
 }
+
+gulp.task('tsc', gulp.series(done => {
+  runCmd('npm', ['run', 'tsc'], code => {
+    if (code) {
+      done(code);
+      return;
+    }
+  });
+}));
 
 const startTime = new Date();
 gulp.task('compile-with-es', done => {
@@ -244,17 +171,18 @@ gulp.task('compile-finalize', done => {
 gulp.task(
   'compile',
   gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib'), 'compile-finalize', done => {
-    console.log('end compile at ', new Date());
-    console.log('compile time ', (new Date() - startTime) / 1000, 's');
+    const date = new Date();
+    console.log('end compile at ', date);
+    console.log('compile time ', (date - startTime) / 1000, 's');
     done();
-  }),
+  })
 );
 
 gulp.task(
   'dist',
   gulp.series(done => {
     dist(done);
-  }),
+  })
 );
 
 gulp.task(
@@ -262,5 +190,21 @@ gulp.task(
   gulp.series(done => {
     sortApiTable();
     done();
-  }),
+  })
 );
+
+gulp.task(
+  'release',
+  gulp.series(gulp.parallel('compile', 'tsc'), done => {
+    runCmd('yarn', ['publish', '--access', 'public'], code => {
+      if (code) {
+        done(code);
+        return;
+      }
+    });
+    done();
+  })
+);
+
+gulp.task('clean', () => {
+});
