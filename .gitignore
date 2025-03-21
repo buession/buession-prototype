@@ -4,6 +4,9 @@ yarn.lock
 
 node_modules
 /types
+/typings
+/es
+/lib
 /dist
 
 
