@@ -17,14 +17,12 @@
   "bugs": "https://github.com/buession/buession-prototype/issues",
   "private": false,
   "scripts": {
-    "build1": "rm -fR ./dist && rm -fR ./types && mkdir ./types && rollup -c ./rollup.config.js && tsc -b ./tsconfig.types.json",
-    "build": "node build/cli/run.js compile",
+    "build": "node --max_old_space_size=8192 build/cli/run.js build",
+    "compile": "node build/cli/run.js compile",
     "dist": "node --max_old_space_size=8192 build/cli/run.js dist",
-    "dist1": "rm -fR ./dist && rollup -c ./rollup.config.js",
     "tsc": "tsc --noEmit && tsc -b ./tsconfig.types.json",
     "lint": "eslint -c ./.eslintrc.js './{src}/**/*.{js,ts,jsx,tsx}'",
     "codecov": "codecov",
-    "release1": "yarn build && yarn publish --access public",
     "release": "node --max_old_space_size=8192 build/cli/run.js release"
   },
   "keywords": [

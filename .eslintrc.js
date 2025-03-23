@@ -21,6 +21,8 @@ module.exports = {
       'no-tabs': 'off',
       'semi': 'off',
       'no-useless-escape': 'off',
+      'no-redeclare': 'off',
+      'no-unused-vars': 'off',
       'no-control-regex': 'off',
       '@typescript-eslint/no-explicit-any': ['off'],
       '@typescript-eslint/no-empty-function': ['off'],

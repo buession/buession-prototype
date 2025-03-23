@@ -24,20 +24,6 @@ const libDir = getProjectPath('lib');
 const esDir = getProjectPath('es');
 const distDir = getProjectPath('dist');
 
-async function dist(done) {
-  console.log('[Parallel] Compile to dist...');
-  rimraf.sync(distDir);
-
-  
-  runCmd('rollup', ['-c', './rollup.config.js'], code => {
-    if (code) {
-      done(code);
-      return;
-    }
-  });
-  done();
-}
-
 function babelify(js, modules) {
   const babelConfig = getBabelCommonConfig(modules);
   babelConfig.babelrc = false;
@@ -144,6 +130,7 @@ gulp.task('tsc', gulp.series(done => {
       return;
     }
   });
+  done();
 }));
 
 const startTime = new Date();
@@ -168,43 +155,45 @@ gulp.task('compile-finalize', done => {
   done();
 });
 
-gulp.task(
-  'compile',
-  gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib'), 'compile-finalize', done => {
-    const date = new Date();
-    console.log('end compile at ', date);
-    console.log('compile time ', (date - startTime) / 1000, 's');
-    done();
-  })
-);
+gulp.task('compile', gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib'), 'compile-finalize', done => {
+  const date = new Date();
+  console.log('end compile at ', date);
+  console.log('compile time ', (date - startTime) / 1000, 's');
+  done();
+}));
 
-gulp.task(
-  'dist',
-  gulp.series(done => {
-    dist(done);
-  })
-);
+gulp.task('dist', gulp.series(done => {
+  console.log('[Parallel] Compile to dist...');
+  rimraf.sync(distDir);
+  
+  runCmd('rollup', ['-c', './rollup.config.js'], code => {
+    if (code) {
+      done(code);
+      return;
+    }
+  });
+  done();
+}));
 
-gulp.task(
-  'sort-api-table',
-  gulp.series(done => {
-    sortApiTable();
-    done();
-  })
-);
+gulp.task('sort-api-table', gulp.series(done => {
+  sortApiTable();
+  done();
+}));
 
-gulp.task(
-  'release',
-  gulp.series(gulp.parallel('compile', 'tsc'), done => {
-    runCmd('yarn', ['publish', '--access', 'public'], code => {
-      if (code) {
-        done(code);
-        return;
-      }
-    });
-    done();
-  })
-);
+gulp.task('build', gulp.series(gulp.parallel('compile', 'dist'), 'tsc', done => {
+  done();
+}));
+
+gulp.task('release', gulp.series('build', done => {
+  console.log('Publish to repository.');
+  runCmd('yarn', ['publish', '--access', 'public'], code => {
+    if (code) {
+      done(code);
+      return;
+    }
+  });
+  done();
+}));
 
 gulp.task('clean', () => {
 });
