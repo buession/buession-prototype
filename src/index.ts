@@ -13,3 +13,5 @@ import './math';
 import './number';
 import './string';
 import './window';
+
+export * from './core';

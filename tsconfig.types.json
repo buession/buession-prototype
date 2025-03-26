@@ -16,7 +16,7 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": false,
-    "noEmit": false,
+    "noEmit": true,
     "noEmitOnError": true,
     "noEmitHelpers": true,
     "importHelpers": true,
@@ -47,6 +47,8 @@
   "exclude": [
     "node_modules",
     "types",
+    "es",
+    "lib",
     "dist",
     "example",
     "tests"

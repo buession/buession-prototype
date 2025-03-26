@@ -166,7 +166,7 @@ Window.prototype.copy = function(str: string): void {
  */
 Window.prototype.delay = function(func: Function, wait?: number, ...args: any) {
   const delayFunc = function(func: Function, wait: number, ...args: any) {
-    if (typeof func != "function") {
+    if (typeof func !== "function") {
       throw new TypeError("Expected a function");
     }
     return setTimeout(function() {

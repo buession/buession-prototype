@@ -186,7 +186,7 @@ Date.prototype.format = function(format: string): string {
 	};
 	const _weekday_map = {
 		"W": 	["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-		"WW": 	["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+		"WW": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 		"WC":	["\u65E5", "\u4E00", "\u4E8C", "\u4E09", "\u56DB", "\u4E94", "\u516D"]
 	};
 	let season = -1;
@@ -328,6 +328,6 @@ Date.prototype.format = function(format: string): string {
 
 	return format.replace(/([ynNAMfFCdYTjeElLwWiohHmsSaOPZ])+/g, function(all: string, t: string) {
 		const fn = $funcs[t];
-		return Object.isFunction(fn) === true ? fn(all) : all;
+		return Object.isFunction(fn) ? fn(all) : all;
 	});
 }
