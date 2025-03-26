@@ -1,7 +1,7 @@
 # 更新日志
 
 
-## [v4.0.2](https://github.com/buession/buession-prototype/releases/tag/4.0.2)（2025-xx-xx）
+## [v4.0.2](https://github.com/buession/buession-prototype/releases/tag/4.0.2)（2025-03-26）
 
 ### ⭐ 新特性
 

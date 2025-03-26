@@ -47,6 +47,8 @@
     "node_modules",
     "types",
     "dist",
+    "es",
+    "lib",
     "example",
     "tests"
   ]
