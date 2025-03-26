@@ -1,7 +1,7 @@
 {
   "name": "@buession/prototype",
   "alias": "prototype",
-  "version": "v4.0.1",
+  "version": "v4.0.2",
   "description": "A native object extension framework for Javascript.",
   "homepage": "https://prototype.buession.com/",
   "author": {
