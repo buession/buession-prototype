@@ -1,6 +1,17 @@
 # 更新日志
 
 
+## [v4.0.2](https://github.com/buession/buession-prototype/releases/tag/4.0.2)（2025-xx-xx）
+
+### ⭐ 新特性
+
+- String 新增 isNotBlank 判断字符串是否不为空字符串
+
+### ⏪ 优化
+
+- 代码优化
+
+
 ## [v4.0.0](https://github.com/buession/buession-prototype/releases/tag/4.0.0)（2025-xx-xx）
 
 ### ⭐ 新特性

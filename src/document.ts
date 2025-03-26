@@ -175,11 +175,11 @@ interface HTMLElement {
 }
 
 enum SameSite {
-  NONE = 'None',
+  NONE = "None",
 
-  LAX = 'Lax',
+  LAX = "Lax",
 
-  STRICT = 'Strict'
+  STRICT = "Strict"
 }
 
 interface CookieOptions {
@@ -250,41 +250,43 @@ class CookieInstance implements Cookie {
     const $name = name = encodeURIComponent(name)
       .replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent);
     const $value = value ? encodeURIComponent(value)
-      .replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent) : '';
+      .replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent) : "";
 
-    let stringifiedAttributes = '';
+    let stringifiedAttributes = "";
 
     if (options) {
-      stringifiedAttributes += options.domain  ? '; domain=' + options.domain : '';
-      stringifiedAttributes += options.path  ? '; path=' + options.path : '';
+      stringifiedAttributes += options.domain  ? "; domain=" + options.domain : "";
+      stringifiedAttributes += options.path  ? "; path=" + options.path : "";
 
       if (options.expires) {
         const $expiresDate = options.expires instanceof Date ? options.expires : new Date(Date.now() + (options.expires as number) * 864e5);
 
-        stringifiedAttributes += '; expires=' + $expiresDate.toUTCString();
+        stringifiedAttributes += "; expires=" + $expiresDate.toUTCString();
       }
 
-      stringifiedAttributes += options.sameSite  ? '; sameSite=' + options.sameSite : '';
-
-      if (Object.isBoolean(options.secure) === true && options.secure === true) {
-        stringifiedAttributes += options.expires  ? '; secure' : '';
+      if (Object.isUndefinedOrNull(options.sameSite) === false) {
+        stringifiedAttributes +=  "; sameSite=" + options.sameSite;
       }
 
-      if (Object.isBoolean(options.httpOnly) === true && options.httpOnly === true) {
-        stringifiedAttributes += options.httpOnly  ? '; httpOnly' : '';
+      if (Object.isBoolean(options.secure) && options.secure === true) {
+        stringifiedAttributes += "; secure";
+      }
+
+      if (Object.isBoolean(options.httpOnly) && options.httpOnly === true) {
+        stringifiedAttributes += "; httpOnly";
       }
     }
 
-    return document.cookie = $name + '=' + $value + stringifiedAttributes;
+    return document.cookie = $name + "=" + $value + stringifiedAttributes;
   }
 
   public get(name: string): string | null {
-    const cookies = document.cookie ? document.cookie.split('; ') : [];
+    const cookies = document.cookie ? document.cookie.split("; ") : [];
 
     for (let i = 0; i < cookies.length; i++) {
-      const parts = cookies[i].split('=');
+      const parts = cookies[i].split("=");
       const $name = decodeURIComponent(parts[0]);
-      let $value = parts.slice(1).join('=');
+      let $value = parts.slice(1).join("=");
 
       if ($name === name) {
         if ($value[0] === '"') {
@@ -303,7 +305,7 @@ class CookieInstance implements Cookie {
 
     $options.expires = -1;
 
-    this.set(name, '', $options);
+    this.set(name, "", $options);
   }
 }
 

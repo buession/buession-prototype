@@ -49,7 +49,7 @@ class Optional<T> {
    * @return Optional 中包含这个值
    */
   public get<T>(): T {
-    if (this.value === null || typeof this.value === 'undefined') {
+    if (this.value === null || typeof this.value === "undefined") {
       throw "No value present";
     }
 

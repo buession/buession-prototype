@@ -29,3 +29,4 @@
 			</div>
 	</div>
 </footer>
+{/* Generate at {(new Date()).toDateString()} */}

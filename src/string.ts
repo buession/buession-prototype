@@ -49,6 +49,14 @@ interface String {
   isBlank(): boolean;
 
   /**
+   * 判断是否不为空白字符串
+   *
+   * @return boolean
+   * @since4.0.2
+   */
+  isNotBlank(): boolean;
+
+  /**
    * 重复一个字符串
    *
    * @papram count 重复次数
@@ -233,7 +241,7 @@ String.prototype.exists = function(str: string): boolean {
  * @return boolean
  */
 String.prototype.equals = function(str: string | undefined | null): boolean {
-  return Object.isUndefinedOrNull(str) == false && this === str;
+  return Object.isUndefinedOrNull(str) === false && this === str;
 }
 
 /**
@@ -270,7 +278,17 @@ String.prototype.isNotEmpty = function(): boolean {
  * @return boolean
  */
 String.prototype.isBlank = function(): boolean {
-  return /^\s*$/.test(this.toString());
+  return this.length === 0 || this.trim().length === 0;
+}
+
+/**
+ * 判断是否不为空白字符串
+ *
+ * @return boolean
+ * @since4.0.2
+ */
+String.prototype.isNotBlank = function(): boolean {
+  return this.isBlank() === false;
 }
 
 /**
