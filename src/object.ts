@@ -204,6 +204,16 @@ interface ObjectConstructor {
    * @return 新对象实例
 	 */
 	omit<T extends object, K extends keyof T> (obj: T, ...fields: K[]): Omit<T, K>;
+
+	/**
+	 * 返回对象指定属性，生成新对象
+	 * 
+	 * @param obj 任意对象
+	 * @param fields 需要返回的属性
+   * @return 新对象实例
+	 * @since 4.1.0
+	 */
+	pick<T extends object, K extends keyof T> (obj: T, ...fields: K[]): Pick<T, K>;
 }
 
 declare var Object: ObjectConstructor;
@@ -518,6 +528,24 @@ Object.omit = function<T extends object, K extends keyof T>(obj: T, ...fields: K
     const key = fields[i];
     delete result[key];
   }
+
+  return result;
+}
+
+/**
+ * 返回对象指定属性，生成新对象
+ * 
+ * @param obj 任意对象
+ * @param fields 需要返回的属性
+ * @return 新对象实例
+ * @since 4.1.0
+ */
+Object.pick = function<T extends object, K extends keyof T>(obj: T, ...fields: K[]): Pick<T, K> {
+	const result = {} as Pick<T, K>;
+
+  fields.forEach((key) => {
+    result[key] = obj[key];
+  });
 
   return result;
 }

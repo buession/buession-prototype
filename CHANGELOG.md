@@ -1,6 +1,13 @@
 # 更新日志
 
 
+## [v4.1.0](https://github.com/buession/buession-prototype/releases/tag/4.1.0)（2025-04-03）
+
+### ⭐ 新特性
+
+- Object 新增方法 pick 返回对象指定属性，生成新对象
+
+
 ## [v4.0.2](https://github.com/buession/buession-prototype/releases/tag/4.0.2)（2025-03-26）
 
 ### ⭐ 新特性

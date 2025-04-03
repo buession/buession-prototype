@@ -23,7 +23,7 @@
     "preserveSymlinks": true,
     "rootDir": "./src",
     "outDir": "./dist",
-    "declaration": true,
+    "declaration": false,
     "sourceMap": true,
     "allowJs": true,
     "stripInternal": true,

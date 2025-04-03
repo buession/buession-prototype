@@ -7,6 +7,7 @@ Buession Prototype [Array](https://www.w3school.com.cn/jsref/jsref_obj_array.asp
 
 |  版本   | 手册  |
 |  ----  | ----  |
+| 4.1.x  | [API 手册](4.1/index.html) |
 | 4.0.x  | [API 手册](4.0/index.html) |
 | 3.0.x  | [API 手册](3.0/index.html) |
 | 2.2.x  | [API 手册](2.2/index.html) |
