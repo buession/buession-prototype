@@ -205,7 +205,7 @@ interface StringConstructor {
    * 生成随机字符串
    *
    * @param length 生成字符串的长度
-   * @param type 生成类型
+   * @param type 生成类型 / 随机字符串范围
    *        NUMERIC 		 - 数字随机字符串
    *		  LETTER  		 - 英文随机字符串
    *		  LETTER_NUMERIC - 英文数字混合随机字符串
@@ -213,7 +213,7 @@ interface StringConstructor {
    *        
    * @return 生成结果
    */
-  random(length: number, type?: RandomType): string;
+  random(length: number, type?: RandomType | string): string;
 
   /**
    * 生成 UUID
@@ -515,7 +515,7 @@ String.prototype.hashCode = function(): number{
  * 生成随机字符串
  *
  * @param length 生成字符串的长度
- * @param type 生成类型
+ * @param type 生成类型 / 随机字符串范围
  *        NUMERIC 		 - 数字随机字符串
  *		  LETTER  		 - 英文随机字符串
  *		  LETTER_NUMERIC - 英文数字混合随机字符串
@@ -523,7 +523,7 @@ String.prototype.hashCode = function(): number{
  *        
  * @return 生成结果
  */
-String.random = function(length: number, type: RandomType = "LETTER_NUMERIC"): string {
+String.random = function(length: number, type: RandomType | string = "LETTER_NUMERIC"): string {
   let result = "";
 
   if (type === "CHINESE") {
@@ -536,18 +536,24 @@ String.random = function(length: number, type: RandomType = "LETTER_NUMERIC"): s
 
   const numeric = "0123456789";
   const letter = "abcdefghijklmnopqrstuvwxyz";
-  const map = {
-    "NUMERIC": numeric,
-    "LETTER": letter + letter.toUpperCase(),
-    "LETTER_NUMERIC": numeric + letter + letter.toUpperCase()
-  };
+  let characters;
 
-  if (!map[type]) {
-    throw "Invalid argument type value, must be: NUMERIC, LETTER, LETTER_NUMERIC or CHINESE";
+  if (type === "NUMERIC") {
+    characters = numeric;
+  } else if (type === "NUMERIC") {
+    characters = letter + letter.toUpperCase();
+  } else if(type === "LETTER_NUMERIC" || Object.isUndefinedOrNull(type)) {
+    characters = numeric + letter + letter.toUpperCase();
+  } else if(Object.isString(type)) {
+    characters = type;
+  } else {
+    throw "Invalid argument type value, must be: NUMERIC, LETTER, LETTER_NUMERIC, CHINESE or String Characters";
   }
 
+  let l: number;
   for (let j = 0; j < length; j++) {
-    result += map[type].charAt(Math.rand(0, map[type].length-1));
+    l = Math.rand(0, characters.length - 1);
+    result += characters[l];
   }
 
   return result;
@@ -564,5 +570,5 @@ String.guid = function(): string {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
   }
 
-  return s() + s() + '-' + s() + '-' + s() + '-' + s() + '-' + s() + s() + s();
+  return s() + s() + "-" + s() + "-" + s() + "-" + s() + "-" + s() + s() + s();
 }
