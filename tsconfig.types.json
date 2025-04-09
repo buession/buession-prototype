@@ -16,7 +16,7 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": false,
-    "noEmit": true,
+    "noEmit": false,
     "noEmitOnError": true,
     "noEmitHelpers": true,
     "emitDeclarationOnly": true,
