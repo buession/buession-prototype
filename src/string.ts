@@ -528,7 +528,7 @@ String.random = function(length: number, type: RandomType | string = "LETTER_NUM
 
   if (type === "CHINESE") {
     for (let i = 0; i < length; i++) {
-      result += String.fromCharCode(Math.rand(19968,40891));
+      result += String.fromCharCode(Math.rand(19968, 40891));
     }
 
     return result;
@@ -540,11 +540,11 @@ String.random = function(length: number, type: RandomType | string = "LETTER_NUM
 
   if (type === "NUMERIC") {
     characters = numeric;
-  } else if (type === "NUMERIC") {
+  } else if (type === "LETTER") {
     characters = letter + letter.toUpperCase();
-  } else if(type === "LETTER_NUMERIC" || Object.isUndefinedOrNull(type)) {
+  } else if (type === "LETTER_NUMERIC" || Object.isUndefinedOrNull(type)) {
     characters = numeric + letter + letter.toUpperCase();
-  } else if(Object.isString(type)) {
+  } else if (Object.isString(type)) {
     characters = type;
   } else {
     throw "Invalid argument type value, must be: NUMERIC, LETTER, LETTER_NUMERIC, CHINESE or String Characters";
