@@ -1,6 +1,13 @@
 # 更新日志
 
 
+## [v4.1.0](https://github.com/buession/buession-prototype/releases/tag/4.1.1)（2025-04-09）
+
+### ⭐ 新特性
+
+- String.random 新增支持指定随机字符串范围
+
+
 ## [v4.1.0](https://github.com/buession/buession-prototype/releases/tag/4.1.0)（2025-04-03）
 
 ### ⭐ 新特性

@@ -5,7 +5,7 @@ banner:
   btns: 
     - { name: '开 始', href: '/docs/quickstart.html', primary: true }
     - { name: 'Github >', href: 'https://github.com/buession/buession-prototype' }
-  caption: '当前版本: v4.1.0'
+  caption: '当前版本: v4.1.1'
 features: 
   - { name: '优雅', desc: '旨在提供便捷的、可靠的基于原生 JavaScript/TypeScript 扩展的类库，拥有完善的文档和高可读性的源码' }
   - { name: '易用', desc: '觉大部分 API 基于原生 JavaScript/TypeScript 对象/类的扩展，参考学习 prototype.js' }

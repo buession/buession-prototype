@@ -19,6 +19,7 @@
     "noEmit": true,
     "noEmitOnError": true,
     "noEmitHelpers": true,
+    "emitDeclarationOnly": true,
     "importHelpers": true,
     "preserveSymlinks": true,
     "rootDir": "./src",
