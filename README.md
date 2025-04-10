@@ -25,10 +25,10 @@
   <a href="https://github.com/buession/buession-prototype/stargazers">
     <img src="https://img.shields.io/github/stars/buession/buession-prototype" alt="Star" />
   </a>
-  <a href="https://www.npmjs.com/package/buession-prototype">
+  <a href="https://www.npmjs.com/package/@buession/prototype">
     <img src="https://img.shields.io/npm/dm/@buession/prototype" alt="Download" />
   </a>
-  <a href="https://www.npmjs.com/package/buession-prototype">
+  <a href="https://www.npmjs.com/package/@buession/prototype">
     <img src="https://img.shields.io/snyk/vulnerabilities/npm/@buession/prototype" alt="Vulnerabilities" />
   </a>
 </div>
