@@ -1,6 +1,18 @@
 # 更新日志
 
 
+## [v4.1.3](https://github.com/buession/buession-prototype/releases/tag/4.1.3)（2025-04-10）
+
+### 🐞 BUG 修复
+
+- 修复生成 AMD 和 CommonJS 时，版本占位符未被替换成实际版本的 BUG
+- 修复 Date.prototype.getDayOfYear 错误的 BUG
+
+### ⏪ 优化
+
+- 其它优化
+
+
 ## [v4.1.2](https://github.com/buession/buession-prototype/releases/tag/4.1.2)（2025-04-09）
 
 
