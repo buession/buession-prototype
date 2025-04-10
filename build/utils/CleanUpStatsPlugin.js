@@ -2,15 +2,12 @@
 class CleanUpStatsPlugin {
   constructor(option) {
     this.option = {
-      MiniCSSExtractPlugin: true,
       tsLoader: true,
       ...option,
     };
   }
 
   shouldPickStatChild(child) {
-    const { MiniCSSExtractPlugin } = this.option;
-    if (MiniCSSExtractPlugin && child.name.includes('mini-css-extract-plugin')) return false;
     return true;
   }
 
