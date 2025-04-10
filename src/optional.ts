@@ -76,8 +76,22 @@ class Optional<T> {
   }
 }
 
-interface Window {
-	Optional: typeof Optional;
+declare global {
+  namespace NodeJS {
+    interface Global {
+      Optional: typeof Optional;
+    }
+  }
+
+  interface Window {
+    Optional: typeof Optional;
+  }
+}
+
+declare var Window: {
+  Optional: typeof Optional;
 }
 
 window.Optional = Optional;
+
+export default {}

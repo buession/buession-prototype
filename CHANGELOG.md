@@ -1,6 +1,17 @@
 # 更新日志
 
 
+## [v4.1.4](https://github.com/buession/buession-prototype/releases/tag/4.1.4)（2025-04-10）
+
+### 🐞 BUG 修复
+
+- 修复 Date.prototype.format 中，时间戳发生变化时，获取错误季节的 BUG
+
+### ⏪ 优化
+
+- 其它优化
+
+
 ## [v4.1.3](https://github.com/buession/buession-prototype/releases/tag/4.1.3)（2025-04-10）
 
 ### 🐞 BUG 修复

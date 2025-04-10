@@ -7,8 +7,13 @@ module.exports = function (modules) {
         resolve('@babel/preset-env'),
         {
           modules,
-          targets: isThereHaveBrowserslistConfig() ? undefined : {
-            browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11'],
+          useBuiltIns: false,
+          corejs: false,
+          targets: isThereHaveBrowserslistConfig() ? {
+            esmodules: true
+          } : {
+            esmodules: true,
+            browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11']
           }
         }
       ]
@@ -28,6 +33,9 @@ module.exports = function (modules) {
       [
         resolve('@babel/plugin-transform-runtime'),
         {
+          corejs: false,
+          helpers: false,
+          regenerator: false,
           useESModules: modules === false,
           version: '^7.10.4',
             //require(`${process.cwd()}/package.json`).dependencies['@babel/runtime'] || '^7.10.4',

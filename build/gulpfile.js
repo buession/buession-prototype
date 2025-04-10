@@ -35,14 +35,11 @@ function babelify(js, modules) {
   }
   const stream = js.pipe(babel(babelConfig)).pipe(
     through2.obj(function z(file, encoding, next) {
-      this.push(file.clone());
-      if (modules !== false) {
-        const content = file.contents.toString(encoding);
-        file.contents = Buffer.from(
-          content.replace(/lodash-es/g, 'lodash').replace('__VERSION__', pkg.version)
-        );
-        this.push(file);
-      }
+      const content = file.contents.toString(encoding);
+      file.contents = Buffer.from(
+        content.replace('__VERSION__', pkg.version)
+      );
+      this.push(file);
       next();
     })
   );

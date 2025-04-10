@@ -479,7 +479,7 @@ String.prototype.toArray = function(delimiter: string): string[] {
  */
 String.prototype.inspect = function(useDoubleQuotes): string {
   const specialChar: Record<string, string> = {'\b': '\\b', '\t': '\\t', '\r': '\\r', '\n': '\\n', '\f': '\\f', '\\': '\\\\'};
-  const escapedString = this.replace(/[\x00-\x1f\\]/g, function (character: string) {
+  const escapedString = this.replace(/[\x00-\x1f\\]/g, (character: string): string => {
     if (character in specialChar) {
       return specialChar[character];
     }

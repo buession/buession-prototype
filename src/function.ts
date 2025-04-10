@@ -47,5 +47,5 @@ Function.prototype.delay = function(timeout: number): any {
 	const __method = this;
 	const args = Array.prototype.slice.call(arguments, 1);
 
-	return window.setTimeout(__method.apply(__method, args), timeout * 1000);
+	return setTimeout(__method.apply(__method, args), timeout * 1000);
 }

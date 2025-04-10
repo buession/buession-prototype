@@ -541,10 +541,10 @@ Object.omit = function<T extends object, K extends keyof T>(obj: T, ...fields: K
  * @since 4.1.0
  */
 Object.pick = function<T extends object, K extends keyof T>(obj: T, ...fields: K[]): Pick<T, K> {
-	const result = {} as Pick<T, K>;
+	const result = Object.create(null);
 
   fields.forEach((key) => {
-    result[key] = obj[key];
+    result[key] = Object.clone(obj[key]);
   });
 
   return result;
