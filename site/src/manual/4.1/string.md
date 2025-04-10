@@ -901,14 +901,14 @@ export default defineComponent({
 ```
 
 
-### **random(length: number, type?: RandomType = "NUMERIC" | "LETTER" | "LETTER_NUMERIC" | "CHINESE" | undefined)**
+### **random(length: number, type?: sring | RandomType = "NUMERIC" | "LETTER" | "LETTER_NUMERIC" | "CHINESE" | undefined)**
 * 类型：`Function`
 
 * 功能描述：生成随机字符串
 
 * 参数：length - `number` 生成字符串的长度
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type - `NUMERIC | LETTER | LETTER_NUMERIC | CHINESE | undefined` 生成类型，可选参数，当未指定时为 LETTER_NUMERIC
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type - `NUMERIC | LETTER | LETTER_NUMERIC | CHINESE | undefined` 生成类型 / 随机字符串范围，可选参数，当未指定时为 LETTER_NUMERIC
 
         NUMERIC      - 数字随机字符串
 

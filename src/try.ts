@@ -28,22 +28,11 @@ const Try = {
 	}
 }
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      Try: typeof Try;
-    }
-  }
-
-  interface Window {
-    Try: typeof Try;
-  }
+interface Window {
+	Try: typeof Try;
 }
 
 declare var Window: {
-  Try: typeof Try;
-}
-
-window.Try = Try;
-
-export default {}
+  prototype: Window;
+  new(): Window;
+};
