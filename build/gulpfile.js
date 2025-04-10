@@ -18,6 +18,8 @@ const getTSCommonConfig = require('./getTSCommonConfig');
 const replaceLib = require('./replaceLib');
 const sortApiTable = require('./sortApiTable');
 
+const pkg = require('../package.json');
+
 const tsDefaultReporter = ts.reporter.defaultReporter();
 
 const libDir = getProjectPath('lib');
@@ -37,7 +39,7 @@ function babelify(js, modules) {
       if (modules !== false) {
         const content = file.contents.toString(encoding);
         file.contents = Buffer.from(
-          content.replace(/lodash-es/g, 'lodash')
+          content.replace(/lodash-es/g, 'lodash').replace('__VERSION__', pkg.version)
         );
         this.push(file);
       }

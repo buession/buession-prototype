@@ -1,7 +1,7 @@
 {
   "name": "@buession/prototype",
   "alias": "prototype",
-  "version": "v4.1.2",
+  "version": "v4.1.3",
   "description": "A native object extension framework for Javascript.",
   "homepage": "https://prototype.buession.com/",
   "author": {
@@ -48,8 +48,6 @@
     "@babel/plugin-transform-class-properties": "^7.25.9",
     "@babel/plugin-transform-export-namespace-from": "^7.25.9",
     "@babel/plugin-transform-member-expression-literals": "^7.8.3",
-    "@babel/plugin-transform-object-assign": "^7.25.9",
-    "@babel/plugin-transform-object-rest-spread": "^7.25.9",
     "@babel/plugin-transform-optional-chaining": "^7.25.9",
     "@babel/plugin-transform-property-literals": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.26.10",

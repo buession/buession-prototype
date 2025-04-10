@@ -86,8 +86,8 @@ Number.isEven = function(num: number): boolean {
  * @return boolean 数字是否在另两个数字之间，返回 true；否则返回 false
  */
 Number.isBetween = function(num: number, min: number, max: number, match: boolean | undefined = false): boolean {
-	min = min||0;
-	max = max||0;
+	min = min || 0;
+	max = max || 0;
 
 	if (min > max) {
 		min ^= max;
