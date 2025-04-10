@@ -22,8 +22,6 @@ module.exports = function (modules) {
       ],
       //[resolve('@vue/babel-plugin-jsx'), { mergeProps: false, enableObjectSlots: false }],
       resolve('@babel/plugin-transform-optional-chaining'),
-      resolve('@babel/plugin-transform-object-assign'),
-      resolve('@babel/plugin-transform-object-rest-spread'),
       resolve('@babel/plugin-proposal-export-default-from'),
       resolve('@babel/plugin-transform-export-namespace-from'),
       resolve('@babel/plugin-transform-class-properties'),
