@@ -174,118 +174,121 @@ Date.prototype.format = function(format: string): string {
 		throw "Invalid argument format";
 	}
 
-	const $this = this;
 	const _season_map = {
-		"N": 	["Spring", "Summer", "Autumn", "Winter"],
-		"A": 	["\u6625", "\u590f", "\u79cb", "\u51ac"]
+		"N": ["Spring", "Summer", "Autumn", "Winter"],
+		"A": ["\u6625", "\u590f", "\u79cb", "\u51ac"]
 	};
 	const _month_map = {
-		"f": 	["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-		"F": 	["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-		"C": 	["\u4E00", "\u4E8C", "\u4E09", "\u56DB", "\u4E94", "\u516D", "\u4E03", "\u516B", "\u4E5D", "\u5341", "\u5341\u4E00", "\u5341\u4E8C"]
+		"f": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+		"F": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+		"C": ["\u4E00", "\u4E8C", "\u4E09", "\u56DB", "\u4E94", "\u516D", "\u4E03", "\u516B", "\u4E5D", "\u5341", "\u5341\u4E00", "\u5341\u4E8C"]
 	};
 	const _weekday_map = {
 		"W": 	["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
 		"WW": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 		"WC":	["\u65E5", "\u4E00", "\u4E8C", "\u4E09", "\u56DB", "\u4E94", "\u516D"]
 	};
-	let season = -1;
-	const seasonFn = () => Math.floor(($this.getMonth() + 3) / 3);
+	const seasonFn = () => {
+		const month = this.getMonth();
+
+		if (month === 11 || month >= 0 && month <= 1) {
+			return 1;
+		} else if (month >= 2 && month <= 4) {
+			return 2;
+		} else if (month >= 5 && month <= 7) {
+			return 3;
+		} else if (month >= 8 && month <= 10) {
+			return 4;
+		} else {
+			return 0;
+		}
+	};
 	const $funcs: Record<string, Function> = {
 		// 年
-		"y": function(pattern: string) {
-			return ($this.getFullYear() + "").substring(4 - pattern.length);
+		"y": (pattern: string): string => {
+			return (this.getFullYear() + "").substring(4 - pattern.length);
 		},
 
 		// 季度（1 到 4）
-		"n": function() {
-			if (season === -1) {
-				season = seasonFn();
-			}
-			return season;
+		"n": (): number => {
+			return seasonFn();
 		},
 
 		// 季度名称
-		"N": function() {
-			if (season === -1) {
-				season = seasonFn();
-			}
-			return _season_map["N"][season - 1];
+		"N": (): string => {
+			return _season_map["N"][seasonFn() - 1];
 		},
 
 		// 季度中文名称
-		"A": function(){
-			if (season === -1) {
-				season = seasonFn();
-			}
-			return _season_map["A"][season - 1];
+		"A": (): string => {
+			return _season_map["A"][seasonFn() - 1];
 		},
 
 		// 月
-		"M": function(pattern: string) {
-      const $month = $this.getMonth() + 1;
+		"M": (pattern: string): string => {
+      const $month = this.getMonth() + 1;
       const result = $month < 10 ? "0" + $month : "" + $month;
 
       return result.substring(2 - pattern.length);
     },
 
 		// 月（Jan 到 Dec）
-		"f": function() {
-			const $month = $this.getMonth();
+		"f": (): string => {
+			const $month = this.getMonth();
 			return _month_map["f"][$month];
 		},
 
 		// 月（January 到 December）
-		"F": function() {
-			const $month = $this.getMonth();
+		"F": (): string => {
+			const $month = this.getMonth();
 			return _month_map["F"][$month];
 		},
 
 		// 月，中文名称
-		"C": function() {
-			const $month = $this.getMonth();
+		"C": (): string => {
+			const $month = this.getMonth();
 			return _month_map["C"][$month];
 		},
 
 		// 星期数字，0 到 6 表示
-		"e": function() {
-			return $this.getDay();
+		"e": (): number => {
+			return this.getDay();
 		},
 
 		// 星期数字，1 到 7 表示
-		"E": function() {
-			return $this.getDay() + 1;
+		"E": (): number => {
+			return this.getDay() + 1;
 		},
 
 		// 星期英文缩写
-		"l": function() {
-			const $weekday = $this.getDay();
+		"l": (): string => {
+			const $weekday = this.getDay();
 			return _weekday_map["W"][$weekday];
 		},
 
 		// 星期英文全称
-		"L": function() {
-			const $weekday = $this.getDay();
+		"L": (): string => {
+			const $weekday = this.getDay();
 			return _weekday_map["WC"][$weekday];
 		},
 
 		// 星期中文名称
-		"w": function() {
-			const $weekday = $this.getDay();
+		"w": (): string => {
+			const $weekday = this.getDay();
 			return _weekday_map["WC"][$weekday];
 		},
 
 		// 日
-		"d": function(pattern: string) {
-			const $date = $this.getDate();
+		"d": (pattern: string): string => {
+			const $date = this.getDate();
 			const result = $date < 10 ? "0" + $date : "" + $date;
 
 			return result.substring(2 - pattern.length);
 		},
 
 		// 小时
-		"h": function(pattern: string) {
-			const $hour = $this.getHours();
+		"h": (pattern: string): string => {
+			const $hour = this.getHours();
 			let result = $hour % 12 === 0 ? "12" : $hour % 12;
 
 			result = $hour < 10 ? "0" + $hour : "" + $hour;
@@ -294,39 +297,39 @@ Date.prototype.format = function(format: string): string {
 		},
 
 		// 小时
-		"H": function(pattern: string) {
-			const $hour = $this.getHours();
+		"H": (pattern: string): string => {
+			const $hour = this.getHours();
 			const result = $hour < 10 ? "0" + $hour : "" + $hour;
 
 			return result.substring(2 - pattern.length);
 		},
 
 		// 分钟
-		"m": function(pattern: string) {
-			const $minutes = $this.getMinutes();
+		"m": (pattern: string): string => {
+			const $minutes = this.getMinutes();
 			const result = $minutes < 10 ? "0" + $minutes : "" + $minutes;
 
 			return result.substring(2 - pattern.length);
 		},
 
 		// 秒钟
-		"s": function(pattern: string) {
-			const $seconds = $this.getSeconds();
+		"s": (pattern: string): string => {
+			const $seconds = this.getSeconds();
 			const result = $seconds < 10 ? "0" + $seconds : "" + $seconds;
 
 			return result.substring(2 - pattern.length);
 		},
 
 		// 毫秒
-		"S": function(pattern: string) {
-			const $mise = $this.getMilliseconds();
+		"S": (pattern: string): string => {
+			const $mise = this.getMilliseconds();
 			const result = $mise < 10 ? "0" + $mise : "" + $mise;
 
 			return result.substring(2 - pattern.length);
 		}
 	};
 
-	return format.replace(/([ynNAMfFCdYTjeElLwWiohHmsSaOPZ])+/g, function(all: string, t: string) {
+	return format.replace(/([ynNAMfFCdYTjeElLwWiohHmsSaOPZ])+/g, (all: string, t: string): string => {
 		const fn = $funcs[t];
 		return Object.isFunction(fn) ? fn(all) : all;
 	});

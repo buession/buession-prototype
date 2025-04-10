@@ -165,7 +165,7 @@ Window.prototype.copy = function(str: string): void {
  * @return 方法执行结果
  */
 Window.prototype.delay = function(func: Function, wait?: number, ...args: any) {
-  const delayFunc = function(func: Function, wait: number, ...args: any) {
+  const delayFunc = (func: Function, wait: number, ...args: any): NodeJS.Timeout => {
     if (typeof func !== "function") {
       throw new TypeError("Expected a function");
     }
