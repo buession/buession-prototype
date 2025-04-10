@@ -187,9 +187,7 @@ Array.prototype.unique = function<T>(): Array<T> {
  * @return 不包括参数中任意一个指定值的数组
  */
 Array.prototype.without = function<T>(...values: T[]): Array<T> {
-  return this.filter(function(v: T) {
-    return values.includes(v) === false;
-  });
+  return this.filter((value)=>values.includes(value) === false);
 }
 
 /**

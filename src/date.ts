@@ -112,11 +112,11 @@ Date.prototype.getSeason = function(): number {
  * @return 年份中的第几天
  */
 Date.prototype.getDayOfYear = function(): number {
-	const month_days = this.isLeapYear() == true ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	let days = this.getDate();
+	const daysInMonth = [31, this.isLeapYear() ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	let days = 0;
 
 	for (let m = 0, month = this.getMonth(); m < month; m++) {
-		days += month_days[m];
+		days += daysInMonth[m];
 	}
 
 	return days;
