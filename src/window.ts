@@ -104,15 +104,15 @@ interface ClipboardData {
   setData(format: ClipboardDataFormat, content: string): void;
 }
 
-export const isMobile = ["Android", "iPhone", "iPod", "Windows Phone", "Mobile", "Coolpad", "mmp", "SmartPhone", "midp", "wap", "xoom", "Symbian", "J2ME", "Blackberry", "Wince"].some((value)=>navigator.userAgent.exists(value));
-export const isChrome = /\(KHTML, like Gecko\) Chrome\//.test(navigator.userAgent);
-export const isFirefox = navigator.userAgent.exists("Firefox");
-export const isMozilla = navigator.userAgent.exists("Mozilla");
-export const isEdge = navigator.userAgent.exists("Edge");
-export const isMSIE = navigator.userAgent.exists("MSIE") && navigator.userAgent.exists("compatible");
-export const isOpera = navigator.userAgent.exists("Opera");
-export const isSafari = navigator.userAgent.exists("Safari");
-export const isNetscape = /Netscape([\d]*)\/([^\s]+)/i.test(navigator.userAgent);
+const isMobile = ["Android", "iPhone", "iPod", "Windows Phone", "Mobile", "Coolpad", "mmp", "SmartPhone", "midp", "wap", "xoom", "Symbian", "J2ME", "Blackberry", "Wince"].some((value)=>navigator.userAgent.exists(value));
+const isChrome = /\(KHTML, like Gecko\) Chrome\//.test(navigator.userAgent);
+const isFirefox = navigator.userAgent.exists("Firefox");
+const isMozilla = navigator.userAgent.exists("Mozilla");
+const isEdge = navigator.userAgent.exists("Edge");
+const isMSIE = navigator.userAgent.exists("MSIE") && navigator.userAgent.exists("compatible");
+const isOpera = navigator.userAgent.exists("Opera");
+const isSafari = navigator.userAgent.exists("Safari");
+const isNetscape = /Netscape([\d]*)\/([^\s]+)/i.test(navigator.userAgent);
 
 Object.defineProperty(window, "browser", {
   value: {
