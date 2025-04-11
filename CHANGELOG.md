@@ -1,6 +1,13 @@
 # 更新日志
 
 
+## [v4.1.7](https://github.com/buession/buession-prototype/releases/tag/4.1.7)（2025-04-11）
+
+### 🐞 BUG 修复
+
+- 修复 Window、Location 未导出问题
+
+
 ## [v4.1.6](https://github.com/buession/buession-prototype/releases/tag/4.1.6)（2025-04-11）
 
 ### ⭐ 新特性
