@@ -13,3 +13,7 @@ export type MaybePromise<T> = T | Promise<T>;
 export type GenericData<T> = Record<string, T>;
 
 export type Data = GenericData<any>;
+
+export type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N;
+
+export type ArrayElementType<T> = T extends (infer E)[] ? E : T;
