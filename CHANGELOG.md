@@ -1,6 +1,21 @@
 # 更新日志
 
 
+## [v4.1.6](https://github.com/buession/buession-prototype/releases/tag/4.1.6)（2025-04-11）
+
+### ⭐ 新特性
+
+- browser 新增范围 cookieEnabled、language、languages
+
+### 🔔 变化
+
+- 支持导出浏览器判断变量
+
+### 🐞 BUG 修复
+
+- 修复 Optional 和 Try 导出问题
+
+
 ## [v4.1.5](https://github.com/buession/buession-prototype/releases/tag/4.1.5)（2025-04-10）
 
 ### 🐞 BUG 修复

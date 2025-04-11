@@ -55,6 +55,9 @@ interface Browser {
 }
 
 interface Location {
+
+  search: string;
+
   /**
    * 获取所有的请求参数及值
    * 
@@ -101,20 +104,33 @@ interface ClipboardData {
   setData(format: ClipboardDataFormat, content: string): void;
 }
 
+export const isMobile = ["Android", "iPhone", "iPod", "Windows Phone", "Mobile", "Coolpad", "mmp", "SmartPhone", "midp", "wap", "xoom", "Symbian", "J2ME", "Blackberry", "Wince"].some((value)=>navigator.userAgent.exists(value));
+export const isChrome = /\(KHTML, like Gecko\) Chrome\//.test(navigator.userAgent);
+export const isFirefox = navigator.userAgent.exists("Firefox");
+export const isMozilla = navigator.userAgent.exists("Mozilla");
+export const isEdge = navigator.userAgent.exists("Edge");
+export const isMSIE = navigator.userAgent.exists("MSIE") && navigator.userAgent.exists("compatible");
+export const isOpera = navigator.userAgent.exists("Opera");
+export const isSafari = navigator.userAgent.exists("Safari");
+export const isNetscape = /Netscape([\d]*)\/([^\s]+)/i.test(navigator.userAgent);
+
 Object.defineProperty(window, "browser", {
   value: {
     userAgent: navigator.userAgent,
     name: navigator.appName,
     version: navigator.appVersion,
-    isMobile: ["Android", "iPhone", "iPod", "Windows Phone", "Mobile", "Coolpad", "mmp", "SmartPhone", "midp", "wap", "xoom", "Symbian", "J2ME", "Blackberry", "Wince"].some((value)=>navigator.userAgent.exists(value)),
-    isChrome: /\(KHTML, like Gecko\) Chrome\//.test(navigator.userAgent),
-    isFirefox: navigator.userAgent.exists("Firefox"),
-    isMozilla: navigator.userAgent.exists("Mozilla"),
-    isEdge: navigator.userAgent.exists("Edge"),
-    isMSIE: navigator.userAgent.exists("MSIE") && navigator.userAgent.exists("compatible"),
-    isOpera: navigator.userAgent.exists("Opera"),
-    isSafari: navigator.userAgent.exists("Safari"),
-    isNetscape: /Netscape([\d]*)\/([^\s]+)/i.test(navigator.userAgent)
+    cookieEnabled: navigator.cookieEnabled,
+    language: navigator.language,
+    languages: navigator.languages,
+    isMobile: isMobile,
+    isChrome: isChrome,
+    isFirefox: isFirefox,
+    isMozilla: isMozilla,
+    isEdge: isEdge,
+    isMSIE: isMSIE,
+    isOpera: isOpera,
+    isSafari: isSafari,
+    isNetscape: isNetscape
   },
   configurable: true,
   writable: false
