@@ -82,5 +82,8 @@ interface Window {
 
 declare var Window: {
   prototype: Window;
+
   new(): Window;
 };
+
+window.Optional = Optional;

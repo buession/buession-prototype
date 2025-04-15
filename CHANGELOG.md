@@ -1,6 +1,13 @@
 # 更新日志
 
 
+## [v4.1.8](https://github.com/buession/buession-prototype/releases/tag/4.1.8)（2025-04-15）
+
+### 🐞 BUG 修复
+
+- 修复 Try、Optional 未注册到全局对象的 BUG
+
+
 ## [v4.1.7](https://github.com/buession/buession-prototype/releases/tag/4.1.7)（2025-04-11）
 
 ### 🐞 BUG 修复
