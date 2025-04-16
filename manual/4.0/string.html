@@ -1,0 +1,1076 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="UTF-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><link rel="apple-touch-icon" sizes="180x180" href="../../ydoc/images/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="../../ydoc/images/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="../../ydoc/images/favicon-16x16.png"/><link rel="manifest" href="../../ydoc/images/manifest.json"/><link rel="mask-icon" href="../../ydoc/images/safari-pinned-tab.svg" color="#5bbad5"/><meta name="theme-color" content="#ffffff"/><meta http-equiv="Cache-Control" content="no-transform"/><meta http-equiv="Cache-Control" content="no-siteapp"/><title>String 参考手册-参考手册</title><link rel="stylesheet" href="../../ydoc/styles/style.css"/><meta name="author" content="buession"/><meta name="keywords" content="javascript typescript prototype string object array window document"/><meta name="description" content="A native object extension framework for Javascript. "/><meta id="releativePath" content="../.."/><link rel="stylesheet" href="../../ydoc/ydoc-plugin-search/search.css"/></head><body><div class="g-doc"><div class="m-aside"><div class="m-summary" id="js-menu"><div class="m-summary-content" id="js-menu-content"><div class="m-summary-block"><ul class="m-summary-list"><li class="item"><a href="../index.html" class="href">简介</a></li><li class="item"><div class="m-summary-block"><a href="../overview.html" class="href">参考指南</a><ul class="m-summary-list indent"><li class="item"><div class="m-summary-block"><a href="../4.1/index.html" class="href">4.1.x</a><ul class="m-summary-list indent"><li class="item"><a href="../4.1/prototype.html" class="href">Prototype</a></li><li class="item"><a href="../4.1/try.html" class="href">Try</a></li><li class="item"><a href="../4.1/optional.html" class="href">Optional</a></li><li class="item"><a href="../4.1/array.html" class="href">Array</a></li><li class="item"><a href="../4.1/date.html" class="href">Date</a></li><li class="item"><div class="m-summary-block"><a href="../4.1/document.html" class="href">Document</a><ul class="m-summary-list indent"><li class="item"><a href="../4.1/cookie.html" class="href">Cookie</a></li></ul></div></li><li class="item"><a href="../4.1/function.html" class="href">Function</a></li><li class="item"><a href="../4.1/math.html" class="href">Math</a></li><li class="item"><a href="../4.1/number.html" class="href">Number</a></li><li class="item"><a href="../4.1/object.html" class="href">Object</a></li><li class="item"><a href="../4.1/string.html" class="href">String</a></li><li class="item"><div class="m-summary-block"><a href="../4.1/window.html" class="href">Window</a><ul class="m-summary-list indent"><li class="item"><a href="../4.1/browser.html" class="href">Browser</a></li><li class="item"><a href="../4.1/location.html" class="href">Location</a></li></ul></div></li></ul></div></li><li class="item"><div class="m-summary-block"><a href="index.html" class="href">4.0.x</a><ul class="m-summary-list indent"><li class="item"><a href="prototype.html" class="href">Prototype</a></li><li class="item"><a href="try.html" class="href">Try</a></li><li class="item"><a href="optional.html" class="href">Optional</a></li><li class="item"><a href="array.html" class="href">Array</a></li><li class="item"><a href="date.html" class="href">Date</a></li><li class="item"><div class="m-summary-block"><a href="document.html" class="href">Document</a><ul class="m-summary-list indent"><li class="item"><a href="cookie.html" class="href">Cookie</a></li></ul></div></li><li class="item"><a href="function.html" class="href">Function</a></li><li class="item"><a href="math.html" class="href">Math</a></li><li class="item"><a href="number.html" class="href">Number</a></li><li class="item"><a href="object.html" class="href">Object</a></li><li class="item"><a href="" class="href">String</a></li><li class="item"><div class="m-summary-block"><a href="window.html" class="href">Window</a><ul class="m-summary-list indent"><li class="item"><a href="browser.html" class="href">Browser</a></li><li class="item"><a href="location.html" class="href">Location</a></li></ul></div></li></ul></div></li><li class="item"><div class="m-summary-block"><a href="../2.2/index.html" class="href">2.2.x</a><ul class="m-summary-list indent"><li class="item"><a href="../2.2/prototype.html" class="href">Prototype</a></li><li class="item"><a href="../2.2/try.html" class="href">Try</a></li><li class="item"><a href="../2.2/optional.html" class="href">Optional</a></li><li class="item"><a href="../2.2/array.html" class="href">Array</a></li><li class="item"><a href="../2.2/date.html" class="href">Date</a></li><li class="item"><div class="m-summary-block"><a href="../2.2/document.html" class="href">Document</a><ul class="m-summary-list indent"><li class="item"><a href="../2.2/cookie.html" class="href">Cookie</a></li></ul></div></li><li class="item"><a href="../2.2/function.html" class="href">Function</a></li><li class="item"><a href="../2.2/math.html" class="href">Math</a></li><li class="item"><a href="../2.2/number.html" class="href">Number</a></li><li class="item"><a href="../2.2/object.html" class="href">Object</a></li><li class="item"><a href="../2.2/string.html" class="href">String</a></li><li class="item"><div class="m-summary-block"><a href="../2.2/window.html" class="href">Window</a><ul class="m-summary-list indent"><li class="item"><a href="../2.2/browser.html" class="href">Browser</a></li><li class="item"><a href="../2.2/location.html" class="href">Location</a></li></ul></div></li></ul></div></li><li class="item"><div class="m-summary-block"><a href="../2.1/index.html" class="href">2.1.x</a><ul class="m-summary-list indent"><li class="item"><a href="../2.1/prototype.html" class="href">Prototype</a></li><li class="item"><a href="../2.1/try.html" class="href">Try</a></li><li class="item"><a href="../2.1/optional.html" class="href">Optional</a></li><li class="item"><a href="../2.1/array.html" class="href">Array</a></li><li class="item"><a href="../2.1/date.html" class="href">Date</a></li><li class="item"><div class="m-summary-block"><a href="../2.1/document.html" class="href">Document</a><ul class="m-summary-list indent"><li class="item"><a href="../2.1/cookie.html" class="href">Cookie</a></li></ul></div></li><li class="item"><a href="../2.1/function.html" class="href">Function</a></li><li class="item"><a href="../2.1/math.html" class="href">Math</a></li><li class="item"><a href="../2.1/number.html" class="href">Number</a></li><li class="item"><a href="../2.1/object.html" class="href">Object</a></li><li class="item"><a href="../2.1/string.html" class="href">String</a></li><li class="item"><div class="m-summary-block"><a href="../2.1/window.html" class="href">Window</a><ul class="m-summary-list indent"><li class="item"><a href="../2.1/browser.html" class="href">Browser</a></li><li class="item"><a href="../2.1/location.html" class="href">Location</a></li></ul></div></li></ul></div></li><li class="item"><div class="m-summary-block"><a href="../3.0/index.html" class="href">3.0.x</a><ul class="m-summary-list indent"><li class="item"><a href="../3.0/prototype.html" class="href">Prototype</a></li><li class="item"><a href="../3.0/try.html" class="href">Try</a></li><li class="item"><a href="../3.0/optional.html" class="href">Optional</a></li><li class="item"><a href="../3.0/array.html" class="href">Array</a></li><li class="item"><a href="../3.0/date.html" class="href">Date</a></li><li class="item"><div class="m-summary-block"><a href="../3.0/document.html" class="href">Document</a><ul class="m-summary-list indent"><li class="item"><a href="../3.0/cookie.html" class="href">Cookie</a></li></ul></div></li><li class="item"><a href="../3.0/function.html" class="href">Function</a></li><li class="item"><a href="../3.0/math.html" class="href">Math</a></li><li class="item"><a href="../3.0/number.html" class="href">Number</a></li><li class="item"><a href="../3.0/object.html" class="href">Object</a></li><li class="item"><a href="../3.0/string.html" class="href">String</a></li><li class="item"><div class="m-summary-block"><a href="../3.0/window.html" class="href">Window</a><ul class="m-summary-list indent"><li class="item"><a href="../3.0/browser.html" class="href">Browser</a></li><li class="item"><a href="../3.0/location.html" class="href">Location</a></li></ul></div></li></ul></div></li><li class="item"><div class="m-summary-block"><a href="../2.2/index.html" class="href">2.2.x</a><ul class="m-summary-list indent"><li class="item"><a href="../2.2/prototype.html" class="href">Prototype</a></li><li class="item"><a href="../2.2/try.html" class="href">Try</a></li><li class="item"><a href="../2.2/optional.html" class="href">Optional</a></li><li class="item"><a href="../2.2/array.html" class="href">Array</a></li><li class="item"><a href="../2.2/date.html" class="href">Date</a></li><li class="item"><div class="m-summary-block"><a href="../2.2/document.html" class="href">Document</a><ul class="m-summary-list indent"><li class="item"><a href="../2.2/cookie.html" class="href">Cookie</a></li></ul></div></li><li class="item"><a href="../2.2/function.html" class="href">Function</a></li><li class="item"><a href="../2.2/math.html" class="href">Math</a></li><li class="item"><a href="../2.2/number.html" class="href">Number</a></li><li class="item"><a href="../2.2/object.html" class="href">Object</a></li><li class="item"><a href="../2.2/string.html" class="href">String</a></li><li class="item"><div class="m-summary-block"><a href="../2.2/window.html" class="href">Window</a><ul class="m-summary-list indent"><li class="item"><a href="../2.2/browser.html" class="href">Browser</a></li><li class="item"><a href="../2.2/location.html" class="href">Location</a></li></ul></div></li></ul></div></li><li class="item"><div class="m-summary-block"><a href="../2.1/index.html" class="href">2.1.x</a><ul class="m-summary-list indent"><li class="item"><a href="../2.1/prototype.html" class="href">Prototype</a></li><li class="item"><a href="../2.1/try.html" class="href">Try</a></li><li class="item"><a href="../2.1/optional.html" class="href">Optional</a></li><li class="item"><a href="../2.1/array.html" class="href">Array</a></li><li class="item"><a href="../2.1/date.html" class="href">Date</a></li><li class="item"><div class="m-summary-block"><a href="../2.1/document.html" class="href">Document</a><ul class="m-summary-list indent"><li class="item"><a href="../2.1/cookie.html" class="href">Cookie</a></li></ul></div></li><li class="item"><a href="../2.1/function.html" class="href">Function</a></li><li class="item"><a href="../2.1/math.html" class="href">Math</a></li><li class="item"><a href="../2.1/number.html" class="href">Number</a></li><li class="item"><a href="../2.1/object.html" class="href">Object</a></li><li class="item"><a href="../2.1/string.html" class="href">String</a></li><li class="item"><div class="m-summary-block"><a href="../2.1/window.html" class="href">Window</a><ul class="m-summary-list indent"><li class="item"><a href="../2.1/browser.html" class="href">Browser</a></li><li class="item"><a href="../2.1/location.html" class="href">Location</a></li></ul></div></li></ul></div></li><li class="item"><div class="m-summary-block"><a href="../2.0/index.html" class="href">2.0.x</a><ul class="m-summary-list indent"><li class="item"><a href="../2.0/prototype.html" class="href">Prototype</a></li><li class="item"><a href="../2.0/try.html" class="href">Try</a></li><li class="item"><a href="../2.0/optional.html" class="href">Optional</a></li><li class="item"><a href="../2.0/array.html" class="href">Array</a></li><li class="item"><a href="../2.0/date.html" class="href">Date</a></li><li class="item"><a href="../2.0/document.html" class="href">Document</a></li><li class="item"><a href="../2.0/function.html" class="href">Function</a></li><li class="item"><a href="../2.0/math.html" class="href">Math</a></li><li class="item"><a href="../2.0/number.html" class="href">Number</a></li><li class="item"><a href="../2.0/object.html" class="href">Object</a></li><li class="item"><a href="../2.0/string.html" class="href">String</a></li><li class="item"><div class="m-summary-block"><a href="../2.0/window.html" class="href">Window</a><ul class="m-summary-list indent"><li class="item"><a href="../2.0/browser.html" class="href">Browser</a></li><li class="item"><a href="../2.0/location.html" class="href">Location</a></li></ul></div></li></ul></div></li></ul></div></li></ul></div></div></div><div class="m-summary-switch" id="js-summary-switch"><svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15" class="bottom"><g transform="translate(904.92214,-879.1482)"><path d="m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,-55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,-174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,-174.68583 0.6895,0 26.281,25.03215 56.8701,55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864-231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,-104.0616 -231.873,-231.248 z" fill="#fff"></path></g></svg><svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15" class="top"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="aaa" fill="#fff" fill-rule="nonzero"><path d="M231.2455,342.502 L0,111.25397 L55.6165,55.62697 C86.2056,25.03212 111.7971,-2.99999998e-05 112.4866,-2.99999998e-05 C113.176,-2.99999998e-05 192.3503,78.60859 288.4293,174.6858 L463.1185,349.3716 L637.8077,174.6858 C733.8867,78.60859 813.060896,-2.99999997e-05 813.750396,-2.99999997e-05 C814.439896,-2.99999997e-05 840.031396,25.03212 870.620496,55.62697 L926.236996,111.25397 L694.9915,342.502 C567.8065,469.6884 463.4636,573.75 463.1185,573.75 C462.7734,573.75 358.4305,469.6884 231.2455,342.502 Z" id="Shape" transform="translate(463.118498, 286.874985) scale(1, -1) translate(-463.118498, -286.874985) "></path></g></g></svg></div></div><div class="m-main" id="js-panel"><header class="m-header" id="js-header"><div class="m-header-title js-logo"><a href="../../index.html" target="_self"><img class="logo" width="70" src="../../ydoc/images/logo.png"/></a></div><div><div class="m-search">
+      <div class="icon">&#xf0fd;</div>
+      <input type="text" class="input js-input" placeholder="搜索" />
+      <div class="m-search-result js-search-result"></div>
+    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="https://prototype.buession.com/">主页</a></li><li class="item "><a class="href" href="../../docs/quickstart.html">文档</a></li><li class="item active"><a class="href" href="../index.html">参考手册</a></li><li class="item "><a class="href" href="../../support.html">技术支持</a></li><li class="item "><span class="href">生态</span><ul class="m-header-subtitle"><li class="item"><a href="https://www.buession.com/" class="link">Buession Framework</a></li><li class="item"><a href="https://security.buession.com/" class="link">Buession Security</a></li><li class="item"><a href="https://logging.buession.com/" class="link">Buession Logging</a></li><li class="item"><a href="https://springboot.buession.com/" class="link">Buession SpringBoot</a></li><li class="item"><a href="https://springcloud.buession.com/" class="link">Buession SpringCloud</a></li><li class="item"><a href="https://cas.buession.com/" class="link">Buession Cas</a></li><li class="item"><a href="https://prototype.buession.com/" class="link">Buession Prototype</a></li><li class="item"><a href="https://shirojs.buession.com/" class="link">Buession Shirojs</a></li></ul></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>String 参考手册</h1>
+<h3 id="方法">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="string.html#existsstr-string">exists</a></td>
+<td>判断字符串是否存在</td>
+</tr>
+<tr>
+<td><a href="string.html#equalsstr-string-%7C-undefined-%7C-null">equals</a></td>
+<td>判断字符串是否相等</td>
+</tr>
+<tr>
+<td><a href="string.html#equalsignorecasestr-string-%7C-undefined-%7C-null">equalsIgnoreCase</a></td>
+<td>判断字符串是否相等，不考虑大小写</td>
+</tr>
+<tr>
+<td><a href="string.html#isempty">isEmpty</a></td>
+<td>判断是否为空字符串</td>
+</tr>
+<tr>
+<td><a href="string.html#isnotempty">isNotEmpty</a></td>
+<td>判断是否不为空字符串</td>
+</tr>
+<tr>
+<td><a href="string.html#isblank">isBlank</a></td>
+<td>判断是否为空白字符串</td>
+</tr>
+<tr>
+<td><a href="string.html#repeatcount-number">repeat</a></td>
+<td>重复一个字符串</td>
+</tr>
+<tr>
+<td><a href="string.html#leftlength-number">left</a></td>
+<td>截取字符串左边边指定数目的字符串</td>
+</tr>
+<tr>
+<td><a href="string.html#rightlength-number">right</a></td>
+<td>截取字符串右边指定数目的字符串</td>
+</tr>
+<tr>
+<td><a href="string.html#truncationlength-number,-truncation?-string-=-%22...%22">truncation</a></td>
+<td>截取字符串，超出部分用 truncation 替代</td>
+</tr>
+<tr>
+<td><a href="string.html#ltrim">ltrim</a></td>
+<td>删除字符串开头的空白字符</td>
+</tr>
+<tr>
+<td><a href="string.html#rtrim">rtrim</a></td>
+<td>删除字符串结尾的空白字符</td>
+</tr>
+<tr>
+<td><a href="string.html#startswithstr-string">startsWith</a></td>
+<td>判断字符串是否以给定的字符串开头</td>
+</tr>
+<tr>
+<td><a href="string.html#endswithstr-string">endsWith</a></td>
+<td>判断字符串是否以给定的字符串结尾</td>
+</tr>
+<tr>
+<td><a href="string.html#lcfirst">lcfirst</a></td>
+<td>首字母小写</td>
+</tr>
+<tr>
+<td><a href="string.html#ucfirst">ucfirst</a></td>
+<td>首字母大写</td>
+</tr>
+<tr>
+<td><a href="string.html#escapehtml">escapeHTML</a></td>
+<td>将 HTML 编码</td>
+</tr>
+<tr>
+<td><a href="string.html#unescapehtml">unescapeHTML</a></td>
+<td>将 HTML 实体字符解码</td>
+</tr>
+<tr>
+<td><a href="string.html#striptagtag-string">stripTag</a></td>
+<td>删除 HTML 标签</td>
+</tr>
+<tr>
+<td><a href="string.html#striptagstag-string">stripTags</a></td>
+<td>批量删除 HTML 标签</td>
+</tr>
+<tr>
+<td><a href="string.html#stripscripts">stripScripts</a></td>
+<td>删除 script 标签</td>
+</tr>
+<tr>
+<td><a href="string.html#toarraydelimiter-string">toArray</a></td>
+<td>将字符串转换为数组</td>
+</tr>
+<tr>
+<td><a href="string.html#inspectusedoublequotes-boolean">inspect</a></td>
+<td>返回一个数组的字符串表示形式</td>
+</tr>
+<tr>
+<td><a href="string.html#hashcode">hashCode</a></td>
+<td>获取字符串 hash code</td>
+</tr>
+<tr>
+<td><a href="string.html#randomlength-number,-type?-randomtype-=-%22numeric%22-%7C-%22letter%22-%7C-%22letter_numeric%22-%7C-%22chinese%22-%7C-undefined">random</a></td>
+<td>生成随机字符串</td>
+</tr>
+<tr>
+<td><a href="string.html#guid">guid</a></td>
+<td>生成 UUID</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="existsstr-string"><strong>exists(str: string)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：判断字符串是否存在</p>
+</li>
+<li>
+<p>参数：str - <code>string</code> 子字符串</p>
+</li>
+<li>
+<p>返回值：<code>boolean</code> 子字符串存在返回 true；否则，返回 false</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"ABC"</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: boolean = "ABC".exists("a") // false
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="equalsstr-string-|-undefined-|-null"><strong>equals(str: string | undefined | null)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：判断字符串是否相等</p>
+</li>
+<li>
+<p>参数：str - <code>string | undefined | null</code> 与此 String 进行比较的对象</p>
+</li>
+<li>
+<p>返回值：<code>boolean</code> 字符串相等返回 true；否则，返回 false</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"A"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: boolean = "A".equals("a") // false
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="equalsignorecasestr-string-|-undefined-|-null"><strong>equalsIgnoreCase(str: string | undefined | null)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：判断字符串是否相等，不考虑大小写</p>
+</li>
+<li>
+<p>参数：str - <code>string | undefined | null</code> 与此 String 进行比较的对象</p>
+</li>
+<li>
+<p>返回值：<code>boolean</code> 字符串相等返回 true；否则，返回 false</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"A"</span><span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: boolean = new String("a").equalsIgnoreCase("1") // false
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="isempty"><strong>isEmpty()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：判断是否为空字符串</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>boolean</code> 字符串为空，即长度为 0 返回 true；否则，返回 false</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">" "</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: boolean = new String("").isEmpty() // true
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="isnotempty"><strong>isNotEmpty()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：判断是否不为空字符串</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>boolean</code> 字符串不为空，即长度大于 0 返回 true；否则，返回 false</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">" "</span><span class="token punctuation">.</span><span class="token function">isNotEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: boolean = new String("").isNotEmpty() // false
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="isblank"><strong>isBlank()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：判断是否为空白字符串</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>boolean</code> 字符串全为空白字符串（即：空格、回车、Tag 制表位、非打印字符）返回 true；否则，返回 false</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">" "</span><span class="token punctuation">.</span><span class="token function">isBlank</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: boolean = new String("\t\n").isBlank() // true
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="repeatcount-number"><strong>repeat(count: number)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：重复一个字符串</p>
+</li>
+<li>
+<p>参数：count - <code>number</code> 重复次数</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 重复后的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"A"</span><span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// AAA</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = "Abc".repeat(3) // AbcAbcAbc
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="leftlength-number"><strong>left(length: number)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：截取字符串左边边指定数目的字符串</p>
+</li>
+<li>
+<p>参数：length - <code>number</code> 截取长度</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 子字符串，length 如果为负数，则返回空字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"Abc"</span><span class="token punctuation">.</span><span class="token function">left</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// A</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = "Abc".left(-1) // ""
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="rightlength-number"><strong>right(length: number)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：截截取字符串右边指定数目的字符串</p>
+</li>
+<li>
+<p>参数：length - <code>number</code> 截取长度</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 子字符串，length 如果为负数，则返回空字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"Abc"</span><span class="token punctuation">.</span><span class="token function">right</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// c</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = "Abc".right(-1) // ""
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="truncationlength-number,-truncation?-string-=-&quot;...&quot;"><strong>truncation(length: number, truncation?: string = &quot;...&quot;)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：截取字符串，超出部分用 truncation 替代</p>
+</li>
+<li>
+<p>参数：length - <code>number</code> 截取长度</p>
+</li>
+</ul>
+<p>             truncation - <code>string</code> 替换字符串</p>
+<ul>
+<li>返回值：<code>string</code> 截取后的字符串；实际截取长度：当 length 小于等于 truncation 的长度时为，length；当 length 大于 truncation 的长度时为，length - truncation.length</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"Abc"</span><span class="token punctuation">.</span><span class="token function">truncation</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// A...</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = "Abc".truncation(6, "...") // Abc
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="ltrim"><strong>ltrim()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：删除字符串开头的空白字符（包括：空格、制表位、换行以及其它非打印字符）</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 删除了字符串最左边的空白字符的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">" Abc"</span><span class="token punctuation">.</span><span class="token function">ltrim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "Abc"</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = new String(" Abc ").ltrim() // "Abc "
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="rtrim"><strong>rtrim()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：删除字符串结尾的空白字符（包括：空格、制表位、换行以及其它非打印字符）</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 删除了字符串最右边的空白字符的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">" Abc"</span><span class="token punctuation">.</span><span class="token function">rtrim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// " Abc"</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = new String(" Abc ").rtrim() // " Abc"
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="startswithstr-string"><strong>startsWith(str: string)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：判断字符串是否以给定的字符串开头</p>
+</li>
+<li>
+<p>参数：str - <code>string</code> 搜索的字符串</p>
+</li>
+<li>
+<p>返回值：<code>boolean</code> 字符串是否以给定的字符串开头返回 true；否则，返回 false</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"Abc"</span><span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: boolean = new String("aBc").startsWith("a") // true
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="endswithstr-string"><strong>endsWith(str: string)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：判断字符串是否以给定的字符串结尾</p>
+</li>
+<li>
+<p>参数：str - <code>string</code> 搜索的字符串</p>
+</li>
+<li>
+<p>返回值：<code>boolean</code> 字符串是否以给定的字符串结尾返回 true；否则，返回 false</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"Abc"</span><span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">"C"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: boolean = new String("aBc").endsWith("c") // true
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="lcfirst"><strong>lcfirst()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：首字母小写</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 首字母小写后的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"Abc"</span><span class="token punctuation">.</span><span class="token function">lcfirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "abc"</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = new String("abc").lcfirst() // "abc"
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="ucfirst"><strong>ucfirst()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：首字母大写</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 首字母大写后的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"abc"</span><span class="token punctuation">.</span><span class="token function">ucfirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "Abc"</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = new String("abc").lcfirst() // "Abc"
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="escapehtml"><strong>escapeHTML()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：将 HTML 编码，参考：<a href="https://www.w3school.com.cn/html/html_entities.asp" target="_blank">https://www.w3school.com.cn/html/html_entities.asp</a></p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 编码后的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"&lt;a href='https://www.domain.com'>test&lt;/a>"</span><span class="token punctuation">.</span><span class="token function">escapeHTML</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &amp;lt;a href='https://www.domain.com'&amp;gt;test&amp;lt;/a&amp;gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = new String("&lt;a href='https://www.domain.com'>test&lt;/a>").lcfirst() // &amp;lt;a href='https://www.domain.com'&amp;gt;test&amp;lt;/a&amp;gt;
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="unescapehtml"><strong>unescapeHTML()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：将 HTML 实体字符解码，参考：<a href="https://www.w3school.com.cn/html/html_entities.asp" target="_blank">https://www.w3school.com.cn/html/html_entities.asp</a></p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 解码后的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"&amp;lt;a href='https://www.domain.com'&amp;gt;test&amp;lt;/a&amp;gt;"</span><span class="token punctuation">.</span><span class="token function">unescapeHTML</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;a href='https://www.domain.com'>test&lt;/a></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = "&amp;lt;a href='https://www.domain.com'&amp;gt;test&amp;lt;/a&amp;gt;".unescapeHTML() // &lt;a href='https://www.domain.com'>test&lt;/a>
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="striptagtag-string"><strong>stripTag(tag: string)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：删除 HTML 标签</p>
+</li>
+<li>
+<p>参数：tag - <code>string</code> 待删除标签</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 删除标签后的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"&lt;a href='https://www.domain.com'>test&lt;/a>&lt;i>&lt;/i>"</span><span class="token punctuation">.</span><span class="token function">stripTag</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// test&lt;i>&lt;/i></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = "&lt;a href='https://www.domain.com'>test&lt;/a>&lt;i>&lt;/i>".stripTag("a") // test&lt;i>&lt;/i>
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="striptagstag-string"><strong>stripTags(tag: string)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：批量删除 HTML 标签</p>
+</li>
+<li>
+<p>参数：tag - <code>string[] | string</code> 删除指定的标签</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 删除标签后的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"&lt;a href='https://www.domain.com'>test&lt;/a>&lt;i>&lt;/i>&lt;em>EM&lt;/em>"</span><span class="token punctuation">.</span><span class="token function">stripTags</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"i"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// test&lt;em>EM&lt;/em></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = "&lt;a href='https://www.domain.com'>test&lt;/a>&lt;i>&lt;/i>&lt;em>EM&lt;/em>".stripTags(["a", "i"]) // test&lt;em>EM&lt;/em>
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="stripscripts"><strong>stripScripts()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：删除 script 标签</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 删除 script 标签后的字符串</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">'&lt;script type="text/javascript">alert("test");&lt;/script>test'</span><span class="token punctuation">.</span><span class="token function">stripScripts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// test</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = '&lt;script type="text/javascript">alert("test");&lt;/script>test'.stripScripts() // &lt;test
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="toarraydelimiter-string"><strong>toArray(delimiter: string)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：将字符串转换为数组</p>
+</li>
+<li>
+<p>参数：delimiter - <code>string</code> 分隔字符</p>
+</li>
+<li>
+<p>返回值：<code>string[]</code> 字符串数组</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"a|b|c"</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [ "a", "b", "c" ]</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string[] = "a|b||c".toArray('||') // [ "a|b", "c" ]
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="inspectusedoublequotes-boolean"><strong>inspect(useDoubleQuotes: boolean)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：返回一个数组的字符串表示形式</p>
+</li>
+<li>
+<p>参数：useDoubleQuotes - <code>boolean</code> 是否使用双引号引住</p>
+</li>
+<li>
+<p>返回值：<code>string</code> 数组的字符串表示形式</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"a|b|c"</span><span class="token punctuation">.</span><span class="token function">inspect</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// \"a|b|c\"</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = "a|b|c".inspect(false) // 'a|b|c'
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="hashcode"><strong>hashCode()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：获取字符串 hash code</p>
+</li>
+<li>
+<p>参数：无</p>
+</li>
+<li>
+<p>返回值：<code>number</code> 字符串的 hash code</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">"abc"</span><span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 96354</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: number = "abcABC".hashCode() // 2870546592
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="randomlength-number,-type?-randomtype-=-&quot;numeric&quot;-|-&quot;letter&quot;-|-&quot;letter_numeric&quot;-|-&quot;chinese&quot;-|-undefined"><strong>random(length: number, type?: RandomType = &quot;NUMERIC&quot; | &quot;LETTER&quot; | &quot;LETTER_NUMERIC&quot; | &quot;CHINESE&quot; | undefined)</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：生成随机字符串</p>
+</li>
+<li>
+<p>参数：length - <code>number</code> 生成字符串的长度</p>
+</li>
+</ul>
+<p>             type - <code>NUMERIC | LETTER | LETTER_NUMERIC | CHINESE | undefined</code> 生成类型，可选参数，当未指定时为 LETTER_NUMERIC</p>
+<pre><code>    NUMERIC      - 数字随机字符串
+
+    LETTER       - 英文随机字符串
+
+    LETTER_NUMERIC - 英文数字混合随机字符串
+
+    CHINESE      - 中文随机字符串
+</code></pre>
+<ul>
+<li>返回值：<code>string</code> 随机字符串</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1Diim2</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = String.random(6, "NUMERIC") // 881773
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<h3 id="guid"><strong>guid()</strong></h3>
+<ul>
+<li>
+<p>类型：<code>Function</code></p>
+</li>
+<li>
+<p>功能描述：生成 UUID</p>
+</li>
+<li>
+<p>返回值：<code>string</code> UUID</p>
+</li>
+</ul>
+<p>示例：</p>
+<p>原生 JavaScript</p>
+<pre><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">guid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0abdd1a1-7909-4f91-a320-6ecbb5c6cb15</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>vue</p>
+<pre><code class="language-html"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const result: string = String.guid(); // 0abdd1a1-7909-4f91-a320-6ecbb5c6cb15
+  }
+});
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+</code></pre>
+</div><div class="m-content-container m-paging"><div class="m-paging-prev m-paging-item"><a href="object.html" class="href"><span class="ui-font-ydoc"></span>Object</a></div><div class="m-paging-next m-paging-item"><a href="window.html" class="href">Window<span class="ui-font-ydoc"></span></a></div></div></div></div></div><div></div><script>
+    var $content = document.getElementById('js-content');
+    var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+    var $menu = document.getElementById('js-menu');
+    if ($menu && sessionStorage.menuScrollTop) {
+		$menu.scrollTop = sessionStorage.menuScrollTop;
+    }
+    // 刷新页面但不切换 pathname 的时候，内容区恢复到记忆的高度
+    if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
+      $content.scrollTop = sessionStorage.contentScrollTop;
+    }
+    sessionStorage.setItem('locationPathname', window.location.pathname);</script><script src="../../ydoc/scripts/plugins/dollar.min.js"></script><script src="../../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../../ydoc/scripts/plugins/slideout.min.js"></script><script src="../../ydoc/scripts/app.js"></script><script src="../../ydoc/ydoc-plugin-search/core.js"></script><script src="../../ydoc/ydoc-plugin-search/search.js"></script><script src="../../../../../../../../../js/stat.js"></script><script src="../../search_json.js"></script></body></html>
