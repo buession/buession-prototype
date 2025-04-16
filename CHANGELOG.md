@@ -1,7 +1,7 @@
 # 更新日志
 
 
-## [v4.1.8](https://github.com/buession/buession-prototype/releases/tag/4.1.8)（2025-04-15）
+## [v4.1.8](https://github.com/buession/buession-prototype/releases/tag/4.1.8)（2025-04-16）
 
 ### 🐞 BUG 修复
 
